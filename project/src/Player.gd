@@ -16,6 +16,10 @@ func _process(delta):
 		_current_pos.x += velocity * delta
 		$ShipSprite.play("turning")
 		$ShipSprite.flip_h = true
+	if Input.is_action_pressed("move_up"):
+		_current_pos.y -= velocity * delta
+	if Input.is_action_just_pressed("move_down"):
+		_current_pos.y += -velocity * delta
 	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
 		$ShipSprite.play("normal")
 	position = _current_pos
