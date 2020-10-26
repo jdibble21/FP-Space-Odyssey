@@ -1,5 +1,29 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_01_png_processed.png" type="Texture" id=1]
+[ext_resource path="res://src/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_02_png_processed.png" type="Texture" id=3]
+[ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_03_png_processed.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "turning",
+"speed": 6.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -14.263, -12.6029, -3.08124, -30.5568, 1.64346, -30.7143, 28.2593, 11.0206, 21.8022, 29.9195, -20.7201, 30.2344, -30.0121, 11.8081 )
+
+[node name="ShipSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "turning"
