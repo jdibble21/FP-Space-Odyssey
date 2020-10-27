@@ -15,11 +15,15 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "turning",
-"speed": 6.0
+"speed": 10.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 325.843, 299.68 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -14.263, -12.6029, -3.08124, -30.5568, 1.64346, -30.7143, 28.2593, 11.0206, 21.8022, 29.9195, -20.7201, 30.2344, -30.0121, 11.8081 )
@@ -27,3 +31,6 @@ polygon = PoolVector2Array( -14.263, -12.6029, -3.08124, -30.5568, 1.64346, -30.
 [node name="ShipSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "turning"
+__meta__ = {
+"_edit_group_": true
+}
