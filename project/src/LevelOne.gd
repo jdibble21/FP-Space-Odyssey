@@ -4,11 +4,10 @@ extends Node2D
 
 const SPEED := 4
 
-export (PackedScene) var EnemyShip
-
 onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
+	randomize()
 	pass # Replace with function body.
 
 

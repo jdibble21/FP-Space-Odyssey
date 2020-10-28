@@ -1,16 +1,22 @@
 extends Path2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export (PackedScene) var StandardEnemyEasy
 
+var _current_max_enemies := 5
+var _current_num_of_enemies := 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	
+func _process(delta):
+	pass
+	if _current_num_of_enemies < _current_max_enemies:
+		var enemy = StandardEnemyEasy.instance()
+		add_child(enemy)
+		enemy.position = $SpawnLocation.position
+		print("spawning enemy!")
+		_current_num_of_enemies += 1
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
