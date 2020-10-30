@@ -3,13 +3,11 @@
 [ext_resource path="res://src/LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamlessVertically.png" type="Texture" id=2]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/EnemyShipSpawnPath.gd" type="Script" id=4]
+[ext_resource path="res://src/ShipSpawning.gd" type="Script" id=4]
 [ext_resource path="res://src/Standard_Enemies/StandardEnemyEasy.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 2.60663, -0.858612, 0, 0, 0, 0, 699.516, 0.165356, 0, 0, 0, 0, 672.425, -39.4386 )
-}
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 322.019, 22.5763 )
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,11 +30,10 @@ scale = Vector2( 2.01388, 2.03633 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="EnemyShipSpawnPath" type="Path2D" parent="."]
-curve = SubResource( 1 )
+[node name="SpawnArea" type="Area2D" parent="."]
 script = ExtResource( 4 )
 StandardEnemyEasy = ExtResource( 5 )
 
-[node name="SpawnLocation" type="PathFollow2D" parent="EnemyShipSpawnPath"]
-position = Vector2( 2.60663, -0.858612 )
-rotation = 0.0014693
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2( 347, -23 )
+shape = SubResource( 1 )
