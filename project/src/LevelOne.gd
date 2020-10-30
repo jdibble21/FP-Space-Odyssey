@@ -14,4 +14,3 @@ func _process(delta):
 	if _background.position.y >= 800:
 		_background.motion_offset.y = 0
 	_background.motion_offset.y += SPEED
-		

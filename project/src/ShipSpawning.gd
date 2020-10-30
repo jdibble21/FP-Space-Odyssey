@@ -17,7 +17,6 @@ func _ready():
 func _process(delta):
 	_spawn_pos.x = randi()%int(_area_width)+1
 	_spawn_pos.y = randi()%int(_area_height)+1
-	print("Current spawn: " + str(_spawn_pos))
 	if _current_num_of_enemies < _current_max_enemies:
 		var enemy = StandardEnemyEasy.instance()
 		add_child(enemy)
