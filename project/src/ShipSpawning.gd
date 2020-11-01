@@ -12,7 +12,7 @@ onready var _area_height = $CollisionShape2D.shape.extents.y
 
 func _ready():
 	randomize()
-	
+
 	
 func _process(delta):
 	_spawn_pos.x = randi()%int(_area_width)+1
@@ -23,3 +23,14 @@ func _process(delta):
 		enemy.position = _spawn_pos
 		print("spawning enemy!")
 		_current_num_of_enemies += 1
+		
+func _basic_formation_one():
+	pass
+
+
+func _basic_formation_two():
+	pass
+	
+
+func _basic_formation_three():
+	pass
