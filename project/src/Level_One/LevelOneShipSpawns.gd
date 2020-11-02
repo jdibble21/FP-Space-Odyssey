@@ -1,6 +1,5 @@
 extends Node
 
-
 export (PackedScene) var _basic_ship
 
 const NUM_OF_FORMATIONS := 2
