@@ -2,7 +2,9 @@ extends KinematicBody2D
 
 const SPEED := 40
 
-# Called when the node enters the scene tree for the first time.
+var _fire_delay := randi()%7+3
+var _can_fire := true
+
 func _ready():
 	pass # Replace with function body.
 	
