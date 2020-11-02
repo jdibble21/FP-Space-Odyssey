@@ -9,3 +9,5 @@ func _ready():
 
 func _process(delta):
 	position += transform.y * SPEED * delta
+	if position.y >= 800:
+		queue_free()
