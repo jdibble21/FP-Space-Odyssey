@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/256px/Enemy02Red_Frame_3_png_processed.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Enemy02Red_Frame_2_png_processed.png" type="Texture" id=2]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Enemy02Red_Frame_1_png_processed.png" type="Texture" id=3]
 [ext_resource path="res://src/Standard_Enemies/StandardEnemyEasy.gd" type="Script" id=4]
 [ext_resource path="res://assets/PixelSpaceRage/256px/GunTurret_ExampleGun_png_processed.png" type="Texture" id=5]
+[ext_resource path="res://src/Projectiles/EnemyStandardBullet.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.9355
@@ -26,14 +27,15 @@ animations = [ {
 "enemy_ship",
 ]]
 script = ExtResource( 4 )
+Bullet = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="Muzzle" type="Position2D" parent="."]
 position = Vector2( 0, 36 )
 
-[node name="Sprite" type="Sprite" parent="Position2D"]
+[node name="Sprite" type="Sprite" parent="Muzzle"]
 position = Vector2( 0.0554581, -12.0156 )
 scale = Vector2( 0.513865, 0.525494 )
 texture = ExtResource( 5 )

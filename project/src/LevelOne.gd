@@ -3,12 +3,13 @@
 extends Node2D
 
 const SPEED := 4
+
 export (PackedScene) var _asteroid_one 
 
 onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 
 func _process(_delta):
@@ -17,7 +18,7 @@ func _process(_delta):
 	_background.motion_offset.y += SPEED
 
 
-
 func _on_hazard_timer_timeout():
+	# Refactor to randomly add different types
 	var _new_hazard = _asteroid_one.instance()
 	add_child(_new_hazard)
