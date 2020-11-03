@@ -4,7 +4,7 @@ const SPEED := 200
 
 
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite.play("active")
 
 func _process(delta):
 	position += transform.y * SPEED * delta
