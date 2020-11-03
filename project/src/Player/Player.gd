@@ -31,6 +31,8 @@ func _process(delta):
 	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
 		$ShipSprite.play("normal")
 	position = current_pos
+	position.x = clamp(position.x, 0, _screen_size.x)
+	position.y = clamp(position.y, 0, _screen_size.y)
 	
 func _fire():
 	var b = Bullet.instance()
