@@ -32,8 +32,11 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 325.843, 299.68 )
+position = Vector2( 573.573, 97.6908 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 Bullet = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

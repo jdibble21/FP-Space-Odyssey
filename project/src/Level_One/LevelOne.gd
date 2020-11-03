@@ -9,7 +9,7 @@ export (PackedScene) var _asteroid_one
 onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
-	pass 
+	$Player.current_pos = $PlayerSpawn.position
 
 
 func _process(_delta):
