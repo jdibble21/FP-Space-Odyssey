@@ -38,3 +38,7 @@ func _fire():
 	var b = Bullet.instance()
 	owner.add_child(b)
 	b.transform = $Muzzle.global_transform
+
+
+func _on_HitBox_hit(area):
+	print("hit!")

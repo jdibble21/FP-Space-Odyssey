@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_01_png_processed.png" type="Texture" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://src/Projectiles/PlayerStandardBullet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_04_png_processed.png" type="Texture" id=8]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=10]
-
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,6 +30,10 @@ animations = [ {
 "name": "active",
 "speed": 10.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 13.1452
+height = 44.3269
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 573.573, 97.6908 )
@@ -64,3 +67,10 @@ __meta__ = {
 position = Vector2( -1, 28 )
 frames = SubResource( 2 )
 animation = "active"
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 0, 6 )
+shape = SubResource( 3 )
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_hit"]

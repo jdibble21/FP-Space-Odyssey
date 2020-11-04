@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FP-Space-Odyssey"
+run/main_scene="res://src/Level_One/LevelOne.tscn"
 config/icon="res://icon.png"
 
 [display]

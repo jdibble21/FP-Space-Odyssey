@@ -4,11 +4,13 @@ const SPEED := 40
 
 export (PackedScene) var Bullet 
 
+var _initial_fire_delay := randi()%6+1
 var _fire_delay := randi()%15+4
 var _can_fire := true
 var _time_elapsed := 0.0
 
 func _ready():
+	$AnimatedSprite.play("normal")
 	pass
 
 	
@@ -28,3 +30,16 @@ func _fire():
 	root_attach.add_child(b)
 	b.transform = $Muzzle.global_transform
 	
+
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("player_bullet"):
+		$AnimatedSprite.play("destroyed")
+		$Muzzle/Sprite.hide()
+		var timer = Timer.new()
+		timer.set_wait_time(0.3)
+		add_child(timer)
+		timer.start()
+		yield(timer, "timeout")
+		print("enemy hit")
+		queue_free()
