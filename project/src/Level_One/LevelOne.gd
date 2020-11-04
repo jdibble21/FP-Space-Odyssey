@@ -19,6 +19,6 @@ func _process(_delta):
 
 
 func _on_hazard_timer_timeout():
-	# Refactor to randomly add different types
+	# Refactor to randomly add different types later
 	var _new_hazard = _asteroid_one.instance()
 	add_child(_new_hazard)

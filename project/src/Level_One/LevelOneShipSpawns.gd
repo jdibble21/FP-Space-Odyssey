@@ -2,8 +2,6 @@ extends Node
 
 export (PackedScene) var _basic_ship
 
-const NUM_OF_FORMATIONS := 2
-
 var _basic_formation_one := {
 	"pos1":[50,-153],
 	"pos2":[99,-110],
@@ -19,8 +17,6 @@ var _basic_formation_three := {
 	"pos2":[332,-136],
 	"pos3":[402,-136]
 }
-var _num_of_formations_allowed := 2
-
 
 func _ready():
 	randomize()
@@ -35,9 +31,24 @@ func _ready():
 		_spawn_basic_ship_formation(_basic_formation_two)
 	if _formation_one_initial == 3 or _formation_two_initial == 3:
 		_spawn_basic_ship_formation(_basic_formation_three)
-		
-		
+	
+	
+func _get_formation(num):
+	if num == 1:
+		return _basic_formation_one
+	if num == 2:
+		return _basic_formation_two
+	if num == 3:
+		return _basic_formation_three
+
+
+func _on_FormationSpawnTimer_timeout():
+	var _new_formation_num := randi()%3+1
+	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
+	
+	
 func _spawn_basic_ship_formation(formation):
+	# Refactor for Iteration 2 for less messy repeating code
 	var _ship_one = _basic_ship.instance()
 	var _ship_two = _basic_ship.instance()
 	var _ship_three = _basic_ship.instance()
@@ -47,4 +58,3 @@ func _spawn_basic_ship_formation(formation):
 	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
 	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
 	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
-
