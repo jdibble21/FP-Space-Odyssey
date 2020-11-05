@@ -43,6 +43,7 @@ func _get_formation(num):
 
 
 func _on_FormationSpawnTimer_timeout():
+	# Every timer timeout, a random formation is selected and spawned
 	var _new_formation_num := randi()%3+1
 	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
 	

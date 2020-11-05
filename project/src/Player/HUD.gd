@@ -2,12 +2,13 @@ extends CanvasLayer
 
 
 var _time := 0.0 
-var rounded_time
+var rounded_time := int(_time)
 
 onready var _time_label := $TimeLabel
+onready var _gameover_label := $GameOverLabel
 
 func _ready():
-	pass # Replace with function body.
+	_gameover_label.hide()
 
 func _process(delta):
 	_time += delta

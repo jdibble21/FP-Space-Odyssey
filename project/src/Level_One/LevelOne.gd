@@ -18,7 +18,9 @@ func _process(_delta):
 		_background.motion_offset.y = 0
 	_background.motion_offset.y += SPEED
 	if _HUD_time.rounded_time >= 15:
+		$Player/HUD/GameOverLabel.show()
 		get_tree().paused = true
+		
 
 func _on_hazard_timer_timeout():
 	# Refactor to randomly add different types later

@@ -2,9 +2,8 @@ extends Area2D
 
 const SPEED := 80
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	position.x = 250
+	position.x = randi()%670+30
 	$AnimationPlayer.play("active")
 
 func _process(delta):
