@@ -3,14 +3,15 @@
 extends KinematicBody2D
 
 signal player_hit
+signal player_defeated
 
 export (PackedScene) var Bullet
-
 export var velocity := 600
 export var sideways_velocity := 500
 
 var current_pos := Vector2()
 var _screen_size
+var _player_lives := 3
 
 func _ready():
 	_screen_size = get_viewport_rect().size
@@ -46,4 +47,7 @@ func _fire():
 
 
 func _on_HitBox_hit(_area):
-	pass
+	emit_signal("player_hit")
+	_player_lives -= 1
+	if _player_lives <= 0:
+		emit_signal("player_defeated")

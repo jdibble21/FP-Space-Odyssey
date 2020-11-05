@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Level_One/LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://src/Level_One/LevelOneShipSpawns.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Asteroid_Hazards/AsteroidHazardOne.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Standard_Enemies/StandardEnemyEasy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamlessVertically.png" type="Texture" id=6]
+[ext_resource path="res://src/Player/HUD.tscn" type="PackedScene" id=7]
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,6 +14,8 @@ _asteroid_one = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 348.136, 355.099 )
+
+[node name="HUD" parent="Player" instance=ExtResource( 7 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

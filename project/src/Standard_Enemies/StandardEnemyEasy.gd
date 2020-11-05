@@ -5,8 +5,7 @@ const SPEED := 60
 export (PackedScene) var Bullet 
 
 var _initial_fire_delay := randi()%6+1
-var _fire_delay := randi()%15+4
-var _can_fire := true
+var _fire_delay := randi()%8+2
 var _time_elapsed := 0.0
 
 func _ready():

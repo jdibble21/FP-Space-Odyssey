@@ -10,5 +10,4 @@ func _physics_process(delta):
 
 
 func _on_PlayerStandardBullet_area_entered(area):
-	if area.is_in_group("enemy_ship"):
-		queue_free()
+	queue_free()
