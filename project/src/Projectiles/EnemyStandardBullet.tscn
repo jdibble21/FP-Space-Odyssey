@@ -26,3 +26,4 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "active"
 flip_v = true
+[connection signal="area_entered" from="." to="." method="_on_EnemyStandardBullet_area_entered"]

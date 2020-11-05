@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED := 100
+const SPEED := 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -11,3 +11,8 @@ func _process(delta):
 	if position.y >= 800:
 		queue_free()
 
+
+
+func _on_EnemyStandardBullet_area_entered(area):
+	if area.is_in_group("player"):
+		queue_free()

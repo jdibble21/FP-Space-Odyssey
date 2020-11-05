@@ -54,7 +54,9 @@ texture = ExtResource( 5 )
 frames = SubResource( 2 )
 animation = "destroyed"
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=[
+"enemy_ship",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource( 3 )

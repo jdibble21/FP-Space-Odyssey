@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED := 40
+const SPEED := 60
 
 export (PackedScene) var Bullet 
 
@@ -11,7 +11,6 @@ var _time_elapsed := 0.0
 
 func _ready():
 	$AnimatedSprite.play("normal")
-	pass
 
 	
 func _process(delta):
@@ -41,5 +40,4 @@ func _on_HitBox_area_entered(area):
 		add_child(timer)
 		timer.start()
 		yield(timer, "timeout")
-		print("enemy hit")
 		queue_free()

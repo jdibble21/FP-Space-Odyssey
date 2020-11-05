@@ -1,3 +1,4 @@
+# Controls regular player attack movement and hit detection
 extends Area2D
 
 const SPEED := 650

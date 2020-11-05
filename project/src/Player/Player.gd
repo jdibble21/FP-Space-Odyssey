@@ -1,9 +1,14 @@
+# Controls player movement and firing, as well as sprite
+# animations
 extends KinematicBody2D
+
+signal player_hit
 
 export (PackedScene) var Bullet
 
 export var velocity := 600
 export var sideways_velocity := 500
+
 var current_pos := Vector2()
 var _screen_size
 
@@ -40,5 +45,5 @@ func _fire():
 	b.transform = $Muzzle.global_transform
 
 
-func _on_HitBox_hit(area):
-	print("hit!")
+func _on_HitBox_hit(_area):
+	pass
