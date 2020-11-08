@@ -1,5 +1,7 @@
 # FP-Space-Odyssey
 
+<a href="https://bsu-cs315.github.io/FP-Space-Odyssey/">Github Pages</a>
+
 ## Project Report
 
 - [ ] D-1: The repository link is submitted to Canvas before the project deadline.
