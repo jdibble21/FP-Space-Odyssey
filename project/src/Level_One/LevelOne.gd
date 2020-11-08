@@ -5,8 +5,9 @@ extends Node2D
 const SPEED := 2
 
 export (PackedScene) var _asteroid_one 
+var ships_destroyed := 0
 
-onready var _HUD_time := $HUD
+onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
@@ -22,7 +23,7 @@ func _process(_delta):
 	if _background.position.y >= 800:
 		_background.motion_offset.y = 0
 	_background.motion_offset.y += SPEED
-	if _HUD_time.rounded_time >= 25:
+	if _HUD.rounded_time >= 25:
 		$HUD/GameOverLabel.show()
 		$MusicLoop.stop()
 		get_tree().paused = true
