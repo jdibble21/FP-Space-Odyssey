@@ -11,7 +11,9 @@ onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
+# warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
+# warning-ignore:return_value_discarded
 	$Player.connect("enemy_destroyed",self,"_add_score")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
