@@ -21,6 +21,7 @@ func _process(_delta):
 		$Player/HUD/GameOverLabel.show()
 		get_tree().paused = true
 		
+		
 
 func _on_hazard_timer_timeout():
 	# Refactor to randomly add different types later
