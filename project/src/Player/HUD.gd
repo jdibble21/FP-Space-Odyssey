@@ -14,5 +14,4 @@ func _ready():
 
 func _process(delta):
 	_time += delta
-	rounded_time = int(_time)
-	_time_label.text = "TIME: " + str(rounded_time) 
+	rounded_time = int(_time) 

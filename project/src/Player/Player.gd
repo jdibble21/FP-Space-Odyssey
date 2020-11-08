@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 signal player_hit
 signal player_defeated
+signal enemy_destroyed
 
 export (PackedScene) var Bullet
 export var velocity := 600
@@ -43,6 +44,7 @@ func _process(delta):
 	
 func _fire():
 	var b = Bullet.instance()
+	b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(b)
 	b.transform = $Muzzle.global_transform
 
@@ -62,3 +64,6 @@ func _on_HitBox_hit(_area):
 		timer.start()
 		yield(timer, "timeout")
 		emit_signal("player_defeated")
+		
+func _on_enemy_destroyed():
+	emit_signal("enemy_destroyed")
