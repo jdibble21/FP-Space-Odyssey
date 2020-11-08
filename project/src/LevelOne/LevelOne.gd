@@ -12,7 +12,7 @@ var _ships_destroyed := 0
 
 onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
-
+onready var _menu_scene := load("res://src/Menu.tscn")
 func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
@@ -23,28 +23,44 @@ func _ready():
 	$MusicLoop.play()
 
 
-func _process(_delta):
-	if Input.is_action_pressed("pause_game"):
-		_on_pause_pressed()
+func _physics_process(_delta):
 	if _background.position.y >= 800:
 		_background.motion_offset.y = 0
 	_background.motion_offset.y += SPEED
-	# Update HUD values
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
 	$HUD/ScoreLabel.text = "SHIPS DESTROYED: " + str(_ships_destroyed)
-	if _HUD.rounded_time >= 25:
-		$HUD/GameOverLabel.show()
-		$MusicLoop.stop()
-		get_tree().paused = true
+	
+	
+func _process(_delta):
+	if Input.is_action_pressed("pause_game"):
+		_on_pause_pressed()
+	if Input.is_action_pressed("return_to_menu"):
+		queue_free()
+		get_tree().get_root().add_child(_menu_scene.instance())
+	if _HUD.rounded_time >= 6:
+		_on_time_finished()
 		
 		
 func _on_player_defeat():
 	$HUD.set_process(false)
 	$MusicLoop.stop()
 	$HUD/DefeatLabel.show()
-	set_process(false)
+	$HUD/FinalScoreLabel.show()
+	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
 	$ShipSpawns/FormationSpawnTimer.stop()
 	$Player.queue_free()
+	
+	
+func _on_time_finished():
+	$HUD/GameOverLabel.show()
+	$HUD/FinalScoreLabel.show()
+	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
+	$MusicLoop.stop()
+	set_physics_process(false)
+	$ShipSpawns/FormationSpawnTimer.stop()
+	$Player/ShipExhaustSprite.hide()
+	$Player/ShipSprite.hide()
+	$Player.set_process(false)
 	
 	
 func _on_pause_pressed():
