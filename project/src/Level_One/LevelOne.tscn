@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Level_One/LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://src/Level_One/LevelOneShipSpawns.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamlessVertically.png" type="Texture" id=6]
 [ext_resource path="res://src/Player/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sound_assets/443865__vabsounds__laserattack.ogg" type="AudioStream" id=8]
+[ext_resource path="res://src/PauseMenu.tscn" type="PackedScene" id=9]
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource( 1 )
@@ -51,5 +52,7 @@ position = Vector2( 354.136, 696.786 )
 [node name="MusicLoop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 volume_db = -9.087
+
+[node name="PauseMenu" parent="." instance=ExtResource( 9 )]
 [connection signal="timeout" from="ShipSpawns/FormationSpawnTimer" to="ShipSpawns" method="_on_FormationSpawnTimer_timeout"]
 [connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]

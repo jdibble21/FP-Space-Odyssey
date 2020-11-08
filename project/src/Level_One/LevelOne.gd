@@ -12,10 +12,13 @@ onready var _background := $ParallaxBackground/ParallaxLayer
 func _ready():
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 	$Player.current_pos = $PlayerSpawn.position
+	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 
 
 func _process(_delta):
+	if Input.is_action_pressed("pause_game"):
+		_on_pause_pressed()
 	if _background.position.y >= 800:
 		_background.motion_offset.y = 0
 	_background.motion_offset.y += SPEED
@@ -26,10 +29,16 @@ func _process(_delta):
 		
 		
 func _on_player_defeat():
+	$HUD.set_process(false)
 	$MusicLoop.stop()
 	$HUD/DefeatLabel.show()
 	set_process(false)
 	$Player.queue_free()
+	
+	
+func _on_pause_pressed():
+	get_tree().paused = true
+	$PauseMenu/PausePanel.show()
 	
 	
 func _on_hazard_timer_timeout():

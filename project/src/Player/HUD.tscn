@@ -27,7 +27,7 @@ margin_top = -15.5
 margin_right = 207.0
 margin_bottom = 15.5
 text = "TIME'S UP!
-Thanks for playing! Press R to play again or ESC to return to menu"
+Thanks for playing! Press R to play again or E to return to menu"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,6 +45,18 @@ margin_bottom = 15.5
 text = "YOU HAVE BEEN DESTROYED
 Press R to play again or ESC to return to menu"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -186.0
+margin_top = 16.0
+margin_right = -63.0
+margin_bottom = 30.0
+text = "SHIPS DESTROYED: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
