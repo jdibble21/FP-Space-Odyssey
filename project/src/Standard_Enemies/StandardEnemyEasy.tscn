@@ -50,7 +50,9 @@ position = Vector2( 0.0554581, -12.0156 )
 scale = Vector2( 0.513865, 0.525494 )
 texture = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"hazard",
+]]
 frames = SubResource( 2 )
 animation = "destroyed"
 

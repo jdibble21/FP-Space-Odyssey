@@ -49,21 +49,22 @@ func _fire():
 	b.transform = $Muzzle.global_transform
 
 
-func _on_HitBox_hit(_area):
-	emit_signal("player_hit")
-	print("player hit!!!")
-	_player_lives -= 1
-	if _player_lives <= 0:
-		set_process(false)
-		$ShipSprite.play("destroyed")
-		$Muzzle/Sprite.hide()
-		$ShipExhaustSprite.hide()
-		var timer = Timer.new()
-		timer.set_wait_time(0.3)
-		add_child(timer)
-		timer.start()
-		yield(timer, "timeout")
-		emit_signal("player_defeated")
+func _on_HitBox_hit(area):
+	if area.is_in_group("hazard"):
+		emit_signal("player_hit")
+		print("player hit!!!")
+		_player_lives -= 1
+		if _player_lives <= 0:
+			set_process(false)
+			$ShipSprite.play("destroyed")
+			$Muzzle/Sprite.hide()
+			$ShipExhaustSprite.hide()
+			var timer = Timer.new()
+			timer.set_wait_time(0.3)
+			add_child(timer)
+			timer.start()
+			yield(timer, "timeout")
+			emit_signal("player_defeated")
 		
 func _on_enemy_destroyed():
 	emit_signal("enemy_destroyed")

@@ -1,3 +1,4 @@
+# Asteroid hazard that spawns randomly on the x axis
 extends Area2D
 
 const SPEED := 80
