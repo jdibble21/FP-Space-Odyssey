@@ -1,7 +1,8 @@
+# Handles physics of enemy standard attack. Will trigger player to
+# be hit on area contact
 extends Area2D
 
 const SPEED := 200
-
 
 func _ready():
 	$AnimatedSprite.play("active")

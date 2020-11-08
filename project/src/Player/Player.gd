@@ -66,5 +66,6 @@ func _on_HitBox_hit(area):
 			yield(timer, "timeout")
 			emit_signal("player_defeated")
 		
+		
 func _on_enemy_destroyed():
 	emit_signal("enemy_destroyed")

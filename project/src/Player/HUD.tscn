@@ -60,3 +60,17 @@ text = "SHIPS DESTROYED: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.5
+margin_top = 32.0
+margin_right = 73.5
+margin_bottom = 46.0
+text = "Total Ships Destroyed: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
