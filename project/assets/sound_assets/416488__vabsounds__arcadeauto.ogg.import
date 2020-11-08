@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/416488__vabsounds__arcadeauto.ogg-258b78af2d780c02ffcf1bb25285cb61.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/416488__vabsounds__arcadeauto.ogg"
+dest_files=[ "res://.import/416488__vabsounds__arcadeauto.ogg-258b78af2d780c02ffcf1bb25285cb61.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

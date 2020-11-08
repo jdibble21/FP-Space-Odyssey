@@ -11,6 +11,7 @@ onready var _background := $ParallaxBackground/ParallaxLayer
 
 func _ready():
 	$Player.current_pos = $PlayerSpawn.position
+	$MusicLoop.play()
 
 
 func _process(_delta):
@@ -19,6 +20,7 @@ func _process(_delta):
 	_background.motion_offset.y += SPEED
 	if _HUD_time.rounded_time >= 15:
 		$Player/HUD/GameOverLabel.show()
+		$MusicLoop.stop()
 		get_tree().paused = true
 		
 		
