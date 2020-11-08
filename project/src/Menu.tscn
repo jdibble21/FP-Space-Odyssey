@@ -1,11 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
+[ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_01_png_processed.png" type="Texture" id=2]
+[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_01_png_processed.png" type="Texture" id=3]
+[ext_resource path="res://src/Menu.gd" type="Script" id=4]
+[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_02_png_processed.png" type="Texture" id=5]
+[ext_resource path="res://assets/sound_assets/416488__vabsounds__arcadeauto.ogg" type="AudioStream" id=6]
 
-[node name="Menu" type="CanvasLayer"]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2.71026, 3.11697 )
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 2.75, 3.125 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -28,11 +42,48 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -23.5
-margin_top = -10.0
-margin_right = 23.5
-margin_bottom = 10.0
+margin_left = -52.5
+margin_top = -22.5
+margin_right = 52.5
+margin_bottom = 22.5
+custom_colors/font_color_disabled = Color( 0.658824, 0.00784314, 0.00784314, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "PLAY!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InstructionsLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -317.5
+margin_top = 112.0
+margin_right = 317.5
+margin_bottom = 194.0
+text = "HOW TO PLAY:
+You have 25 seconds to destroy as many enemy ships
+ as you can without being destroyed yourself!
+
+Use W A S D for moving ship up, left, down and right
+Left click on the mouse to fire
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShipSprite" type="Sprite" parent="."]
+position = Vector2( 352, 96 )
+texture = ExtResource( 2 )
+
+[node name="ShipExhaust" type="AnimatedSprite" parent="ShipSprite"]
+position = Vector2( 0, 29 )
+frames = SubResource( 1 )
+animation = "active"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -9.087

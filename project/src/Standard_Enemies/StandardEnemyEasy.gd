@@ -29,7 +29,6 @@ func _fire():
 	b.transform = $Muzzle.global_transform
 	
 
-
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		$AnimatedSprite.play("destroyed")

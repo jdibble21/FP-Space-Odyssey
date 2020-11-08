@@ -13,10 +13,10 @@
 script = ExtResource( 1 )
 _asteroid_one = ExtResource( 4 )
 
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 348.136, 355.099 )
-
-[node name="HUD" parent="Player" instance=ExtResource( 7 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -38,7 +38,7 @@ script = ExtResource( 2 )
 _basic_ship = ExtResource( 5 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
-wait_time = 7.0
+wait_time = 4.0
 autostart = true
 
 [node name="HazardTimer" type="Timer" parent="."]

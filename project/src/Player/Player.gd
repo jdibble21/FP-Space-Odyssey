@@ -11,7 +11,7 @@ export var sideways_velocity := 500
 
 var current_pos := Vector2()
 var _screen_size
-var _player_lives := 3
+var _player_lives := 1
 
 func _ready():
 	_screen_size = get_viewport_rect().size
@@ -40,6 +40,7 @@ func _process(delta):
 	position.x = clamp(position.x, 0, _screen_size.x)
 	position.y = clamp(position.y, 0, _screen_size.y)
 	
+	
 func _fire():
 	var b = Bullet.instance()
 	owner.add_child(b)
@@ -48,6 +49,16 @@ func _fire():
 
 func _on_HitBox_hit(_area):
 	emit_signal("player_hit")
+	print("player hit!!!")
 	_player_lives -= 1
 	if _player_lives <= 0:
+		set_process(false)
+		$ShipSprite.play("destroyed")
+		$Muzzle/Sprite.hide()
+		$ShipExhaustSprite.hide()
+		var timer = Timer.new()
+		timer.set_wait_time(0.3)
+		add_child(timer)
+		timer.start()
+		yield(timer, "timeout")
 		emit_signal("player_defeated")
