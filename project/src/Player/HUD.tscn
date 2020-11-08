@@ -43,7 +43,7 @@ margin_top = -15.5
 margin_right = 146.0
 margin_bottom = 15.5
 text = "YOU HAVE BEEN DESTROYED
-Press R to play again or ESC to return to menu"
+Press R to play again or E to return to menu"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

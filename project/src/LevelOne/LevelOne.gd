@@ -37,7 +37,10 @@ func _process(_delta):
 	if Input.is_action_pressed("return_to_menu"):
 		queue_free()
 		get_tree().get_root().add_child(_menu_scene.instance())
-	if _HUD.rounded_time >= 6:
+	if Input.is_action_just_pressed("restart"):
+		queue_free()
+		get_tree().reload_current_scene()
+	if _HUD.rounded_time >= 25:
 		_on_time_finished()
 		
 		
@@ -52,6 +55,7 @@ func _on_player_defeat():
 	
 	
 func _on_time_finished():
+	$HUD.set_process(false)
 	$HUD/GameOverLabel.show()
 	$HUD/FinalScoreLabel.show()
 	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
