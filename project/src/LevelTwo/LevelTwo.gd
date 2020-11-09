@@ -27,4 +27,52 @@ func _physics_process(_delta):
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
 	$HUD/ScoreLabel.text = "SHIPS DESTROYED: " + str(_ships_destroyed)
 	
+func _process(_delta):
+	if Input.is_action_pressed("pause_game"):
+		_on_pause_pressed()
+	if Input.is_action_pressed("return_to_menu"):
+		queue_free()
+		get_tree().get_root().add_child(_menu_scene.instance())
+	if _HUD.rounded_time >= 25:
+		_on_time_finished()
+		
+		
+func _on_player_defeat():
+	$HazardTimer.stop()
+	$HUD.set_process(false)
+	$MusicLoop.stop()
+	$HUD/DefeatLabel.show()
+	$HUD/FinalScoreLabel.show()
+	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
+	$ShipSpawns/FormationSpawnTimer.stop()
+	$Player.queue_free()
 	
+	
+func _on_time_finished():
+	$HazardTimer.stop()
+	$HUD.set_process(false)
+	$HUD/GameOverLabel.show()
+	$HUD/FinalScoreLabel.show()
+	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
+	$MusicLoop.stop()
+	set_physics_process(false)
+	$ShipSpawns/FormationSpawnTimer.stop()
+	$Player/ShipExhaustSprite.hide()
+	$Player/ShipSprite.hide()
+	$Player.set_process(false)
+	
+	
+func _on_pause_pressed():
+	get_tree().paused = true
+	$PauseMenu/PausePanel.show()
+	
+	
+func _add_score():
+	_ships_destroyed += 1
+	
+	
+func _on_hazard_timer_timeout():
+	# Refactor to randomly add different types later
+	var _new_hazard = _asteroid_one.instance()
+	add_child(_new_hazard)
+
