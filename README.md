@@ -47,4 +47,5 @@ Menu music loop is "ArcadeAuto". Created by VABsounds, [CC0 1.0 Universal](http:
 Gameplay music loop is "LaserAttack". Created by VABsounds, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/).
 Source: https://freesound.org/people/VABsounds/sounds/443865/
 
-All background images, sprite images and animations are from "2D Pizel Art Space Shooter". Created by Ravenmore, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://ravenmore.itch.io/pixel-space-shooter-assets/devlog/51959/2d-pixel-art-space-shooter
+All background images, sprite images and animations are from "2D Pizel Art Space Shooter". Created by Ravenmore, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). 
+Source: https://ravenmore.itch.io/pixel-space-shooter-assets/devlog/51959/2d-pixel-art-space-shooter
