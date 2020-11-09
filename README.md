@@ -5,16 +5,16 @@
 ## Project Report
 
 This first iteration of this project has been both much more time-consuming, and also much smoother to develop. In particular it has become almost second nature to edit my code to comply with the style guide as I write it. This makes things much easier when it comes to final touches and saving time. My major challenge this iteration was solving the issue of having a dynamic game. Creating methods that would allow the game to have semi-random spawning for enemies and attacking delays that made sense and were clean was one that included many versions that I believe now I have figured out. 
-- [ ] D-1: The repository link is submitted to Canvas before the project deadline.
+- [X] D-1: The repository link is submitted to Canvas before the project deadline.
 - [X] D-2: The repository contains a <code>README.md</code> file in its top-level directory.
 - [X] D-3: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of M or less.
 - [X] C-1: Your repository is well-formed, with an appropriate <code>.gitignore</code> file and no unnecessary files tracked.
-- [ ] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
+- [X] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
 - [X] C-3: You have a clear legal right to use all incorporated assets, and the licenses for all third-party assets are tracked in the <code>README.md</code> file.
 - [X] C-4: The <code>README.md</code> contains instructions for how to play the game or such instructions are incorporated into the game itself.
 - [X] C-5: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of T or less.
 - [X] C-6: The release demonstrates the core gameplay loop: the player can take action that moves them toward a goal.
-- [ ] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
+- [X] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
 - [X] B-2: The game runs without errors or warnings.
 - [X] B-3: The playable game is published to GitHub Pages and linked from the <code>README.md</code> file, or executable builds are provided for download as part of the GitHub release.
 - [X] B-4: The source code and project structure comply with our adopted style guides.
@@ -42,3 +42,9 @@ According to the completed criteria, I have earned an A for this iteration.
 
 ## Third-Party Assets
 
+Menu music loop is "ArcadeAuto". Created by VABsounds, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/VABsounds/sounds/416488/
+
+Gameplay music loop is "LaserAttack". Created by VABsounds, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/).
+Source: https://freesound.org/people/VABsounds/sounds/443865/
+
+All background images, sprite images and animations are from "2D Pizel Art Space Shooter". Created by Ravenmore, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://ravenmore.itch.io/pixel-space-shooter-assets/devlog/51959/2d-pixel-art-space-shooter
