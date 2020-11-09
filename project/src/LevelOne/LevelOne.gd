@@ -14,6 +14,7 @@ onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
 onready var _menu_scene := load("res://src/Menu.tscn")
 onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
+
 func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")

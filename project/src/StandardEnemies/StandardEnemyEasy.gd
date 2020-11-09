@@ -1,3 +1,4 @@
+# Controls movement, and random firing delay for enemy type. 
 extends KinematicBody2D
 
 const SPEED := 60
