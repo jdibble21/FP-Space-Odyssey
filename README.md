@@ -37,3 +37,8 @@ This first iteration of this project has been both much more time-consuming, and
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
 - [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
+
+According to the completed criteria, I have earned an A for this iteration.
+
+## Third-Party Assets
+
