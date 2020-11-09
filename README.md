@@ -2,9 +2,12 @@
 
 <a href="https://bsu-cs315.github.io/FP-Space-Odyssey/">Github Pages</a>
 
-## Project Report
+## Reflection
 
 This first iteration of this project has been both much more time-consuming, and also much smoother to develop. In particular it has become almost second nature to edit my code to comply with the style guide as I write it. This makes things much easier when it comes to final touches and saving time. My major challenge this iteration was solving the issue of having a dynamic game. Creating methods that would allow the game to have semi-random spawning for enemies and attacking delays that made sense and were clean was one that included many versions that I believe now I have figured out. 
+
+## Self-Evaluation
+
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
 - [X] D-2: The repository contains a <code>README.md</code> file in its top-level directory.
 - [X] D-3: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of M or less.
