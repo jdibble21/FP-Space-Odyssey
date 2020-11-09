@@ -1,6 +1,6 @@
 # FP-Space-Odyssey
 
-<a href="https://bsu-cs315.github.io/FP-Space-Odyssey/" target=_blank>Github Pages</a>
+<a href="https://bsu-cs315.github.io/FP-Space-Odyssey/" target="_blank">Github Pages</a>
 
 ## Reflection
 
