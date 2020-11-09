@@ -69,6 +69,9 @@ You have 25 seconds to destroy as many enemy ships
 
 Use W A S D for moving ship up, left, down and right
 Left click on the mouse to fire
+
+While playing, press ESC to pause game
+and E to exit back to menu
 "
 align = 1
 __meta__ = {

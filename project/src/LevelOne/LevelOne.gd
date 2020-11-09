@@ -13,6 +13,7 @@ var _ships_destroyed := 0
 onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
 onready var _menu_scene := load("res://src/Menu.tscn")
+onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
 func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
@@ -37,14 +38,12 @@ func _process(_delta):
 	if Input.is_action_pressed("return_to_menu"):
 		queue_free()
 		get_tree().get_root().add_child(_menu_scene.instance())
-	if Input.is_action_just_pressed("restart"):
-		queue_free()
-		get_tree().reload_current_scene()
 	if _HUD.rounded_time >= 25:
 		_on_time_finished()
 		
 		
 func _on_player_defeat():
+	$HazardTimer.stop()
 	$HUD.set_process(false)
 	$MusicLoop.stop()
 	$HUD/DefeatLabel.show()
@@ -55,6 +54,7 @@ func _on_player_defeat():
 	
 	
 func _on_time_finished():
+	$HazardTimer.stop()
 	$HUD.set_process(false)
 	$HUD/GameOverLabel.show()
 	$HUD/FinalScoreLabel.show()
