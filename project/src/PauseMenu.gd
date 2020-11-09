@@ -11,7 +11,6 @@ func _on_ResumeButton_pressed():
 
 
 func _on_ReturnMenuButton_pressed():
-	print(get_parent())
 	get_tree().paused = false
 	get_parent().queue_free()
 	queue_free()
