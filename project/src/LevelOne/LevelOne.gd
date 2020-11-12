@@ -74,8 +74,10 @@ func _boss_setup():
 	
 func _on_level_complete():
 	remove_child($LevelOneBoss)
-	print("LEVEL COMPLETE")
-	pass
+	$MusicLoop.stop()
+	$LevelCompleteMenu/WinSound.play()
+	$LevelCompleteMenu/CompletePanel.show()
+	$Player.set_process(false)
 	
 	
 func _on_hazard_timer_timeout():

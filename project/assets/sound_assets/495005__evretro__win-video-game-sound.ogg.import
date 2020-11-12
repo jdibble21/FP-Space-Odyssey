@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/495005__evretro__win-video-game-sound.ogg-f7f3c146f83ee89da9450fa260583b56.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/495005__evretro__win-video-game-sound.ogg"
+dest_files=[ "res://.import/495005__evretro__win-video-game-sound.ogg-f7f3c146f83ee89da9450fa260583b56.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
