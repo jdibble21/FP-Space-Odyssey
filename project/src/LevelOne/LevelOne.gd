@@ -9,6 +9,7 @@ const SPEED := 2
 
 export (PackedScene) var _asteroid_one 
 var _ships_destroyed := 0
+var _scrolling_enabled := true
 
 onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
@@ -20,15 +21,17 @@ func _ready():
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 # warning-ignore:return_value_discarded
 	$Player.connect("enemy_destroyed",self,"_add_score")
+	$ShipSpawns.connect("boss_released",self,"_disable_scroll")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 
 
 func _physics_process(_delta):
-	if _background.position.y >= 800:
-		_background.motion_offset.y = 0
-	_background.motion_offset.y += SPEED
+	if _scrolling_enabled:
+		if _background.position.y >= 800:
+			_background.motion_offset.y = 0
+		_background.motion_offset.y += SPEED
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
 	$HUD/ScoreLabel.text = "SHIPS DESTROYED: " + str(_ships_destroyed)
 	
@@ -57,6 +60,9 @@ func _on_pause_pressed():
 	
 func _add_score():
 	_ships_destroyed += 1
+	
+func _disable_scroll():
+	_scrolling_enabled = false
 	
 	
 func _on_hazard_timer_timeout():

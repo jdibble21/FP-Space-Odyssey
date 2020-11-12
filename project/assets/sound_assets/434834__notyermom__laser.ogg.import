@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/434834__notyermom__laser.ogg-f9c0f37c1a6d1f10b3afe8083b362d24.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/434834__notyermom__laser.ogg"
+dest_files=[ "res://.import/434834__notyermom__laser.ogg-f9c0f37c1a6d1f10b3afe8083b362d24.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

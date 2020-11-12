@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/256px/Laser_Large_png_processed.png" type="Texture" id=1]
 [ext_resource path="res://src/Projectiles/EnemyStandardBullet.gd" type="Script" id=2]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Laser_Medium_png_processed.png" type="Texture" id=3]
+[ext_resource path="res://assets/sound_assets/542579__samsterbirdies__laser.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.9229
@@ -28,4 +29,8 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "active"
 flip_v = true
+
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -8.078
 [connection signal="area_entered" from="." to="." method="_on_EnemyStandardBullet_area_entered"]

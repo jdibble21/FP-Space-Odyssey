@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/542579__samsterbirdies__laser.ogg-88a5e61b71c3b4e0203d9062f55f205f.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/542579__samsterbirdies__laser.ogg"
+dest_files=[ "res://.import/542579__samsterbirdies__laser.ogg-88a5e61b71c3b4e0203d9062f55f205f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

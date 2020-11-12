@@ -16,6 +16,8 @@ onready var _muzzle_four = $Muzzle4
 
 func _ready():
 	position = Vector2(350,-100)
+	$ExhaustOne.play("active")
+	$ExhaustTwo.play("active")
 	
 	
 func _process(delta):
@@ -66,4 +68,5 @@ func _on_SpecialAttackDelay_timeout():
 	var b = PhotonBullet.instance()
 	var root_attach = get_tree().get_root().get_node("LevelOne")
 	root_attach.add_child(b)
+	$SpecialAttackSound.play()
 	b.transform = $MuzzleSpecial.global_transform

@@ -15,11 +15,15 @@ radius = 6.51232
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.74411
 
-[node name="PhotonBullet" type="Area2D"]
+[node name="PhotonBullet" type="Area2D" groups=[
+"enemy_bullet",
+"hazard",
+]]
 script = ExtResource( 2 )
 
 [node name="ParticleOne" type="Area2D" parent="." groups=[
 "enemy_bullet",
+"hazard",
 ]]
 position = Vector2( -0.891876, 0 )
 __meta__ = {
@@ -34,6 +38,7 @@ texture = ExtResource( 1 )
 
 [node name="ParticleTwo" type="Area2D" parent="." groups=[
 "enemy_bullet",
+"hazard",
 ]]
 position = Vector2( -17.3706, 0.927977 )
 __meta__ = {
@@ -50,6 +55,7 @@ texture = ExtResource( 1 )
 
 [node name="ParticleThree" type="Area2D" parent="." groups=[
 "enemy_bullet",
+"hazard",
 ]]
 position = Vector2( -26.4913, 1.29957 )
 __meta__ = {
@@ -66,6 +72,7 @@ texture = ExtResource( 1 )
 
 [node name="ParticleFour" type="Area2D" parent="." groups=[
 "enemy_bullet",
+"hazard",
 ]]
 position = Vector2( -31.388, 1.57647 )
 __meta__ = {
@@ -82,6 +89,7 @@ texture = ExtResource( 1 )
 
 [node name="ParticleFive" type="Area2D" parent="." groups=[
 "enemy_bullet",
+"hazard",
 ]]
 position = Vector2( -31.3879, 1.57648 )
 __meta__ = {

@@ -6,6 +6,7 @@ const SPEED := 200
 
 func _ready():
 	$AnimatedSprite.play("active")
+	$FiringSound.play()
 
 
 func _process(delta):
