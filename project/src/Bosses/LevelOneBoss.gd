@@ -114,10 +114,12 @@ func _on_defeat():
 	$SpecialAttackDelay.stop()
 	var timer = Timer.new()
 	timer.set_wait_time(3)
+	$DestroyedSound.play()
 	add_child(timer)
 	timer.start()
 	_activate_destruction()
 	yield(timer, "timeout")
+	$DestroyedSound.stop()
 	emit_signal("boss_defeated")
 
 

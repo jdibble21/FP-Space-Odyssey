@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/132833__bekir-virtualdj__explode.ogg-45cb828d1b1b54d725b45b3044b3153f.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/132833__bekir-virtualdj__explode.ogg"
+dest_files=[ "res://.import/132833__bekir-virtualdj__explode.ogg-45cb828d1b1b54d725b45b3044b3153f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
