@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=1]
+
+[node name="LevelOneBoss" type="KinematicBody2D"]
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PoolVector2Array( -146.533, -220.793, -155.971, -149.059, -91.7878, 90.6852, -18.1656, 217.164, 27.1404, 217.164, 81.885, 100.124, 166.834, -145.283, 136.63, -232.12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

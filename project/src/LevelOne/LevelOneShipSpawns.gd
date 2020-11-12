@@ -1,5 +1,7 @@
 extends Node
 
+const MAX_FORMATIONS := 10 
+
 export (PackedScene) var _basic_ship
 
 var _basic_formation_one := {
@@ -17,6 +19,7 @@ var _basic_formation_three := {
 	"pos2":[332,-136],
 	"pos3":[402,-136]
 }
+var _formation_num := 0
 
 func _ready():
 	randomize()
@@ -43,6 +46,11 @@ func _get_formation(num):
 
 
 func _on_FormationSpawnTimer_timeout():
+	_formation_num += 1
+	if _formation_num > MAX_FORMATIONS:
+		remove_child($FormationSpawnTimer)
+		_spawn_levelone_boss()
+		return
 	# Every timer timeout, a random formation is selected and spawned
 	var _new_formation_num := randi()%3+1
 	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
@@ -59,3 +67,6 @@ func _spawn_basic_ship_formation(formation):
 	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
 	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
 	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
+	
+func _spawn_levelone_boss():
+	pass
