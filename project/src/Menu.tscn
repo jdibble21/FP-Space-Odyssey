@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=7]
 [ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=8]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "boss_ship"
 length = 7.0
 tracks/0/type = "value"
@@ -25,8 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 350.646, -124.939 ), Vector2( 350.64, 930.215 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "flyby"
+[sub_resource type="Animation" id=2]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("SideShip1:position")
@@ -165,8 +164,8 @@ wait_time = 8.0
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/boss_ship = SubResource( 2 )
-anims/flyby = SubResource( 1 )
+anims/boss_ship = SubResource( 1 )
+anims/flyby = SubResource( 2 )
 
 [node name="BossShip" type="Sprite" parent="."]
 position = Vector2( 350.646, -124.939 )

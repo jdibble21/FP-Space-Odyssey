@@ -22,6 +22,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("enemy_destroyed",self,"_add_score")
 # warning-ignore:return_value_discarded
+	$Player.connect("cheats_enabled",self,"_activate_cheats")
 	$ShipSpawns.connect("boss_released",self,"_boss_setup")
 	$LevelOneBoss.connect("boss_defeated",self,"_on_level_complete")
 	$Player.current_pos = $PlayerSpawn.position
@@ -78,6 +79,10 @@ func _on_level_complete():
 	$LevelCompleteMenu/WinSound.play()
 	$LevelCompleteMenu/CompletePanel.show()
 	$Player.set_process(false)
+
+func _activate_cheats():
+	print("set formation to 1")
+	$ShipSpawns.formation_num = 9
 	
 	
 func _on_hazard_timer_timeout():

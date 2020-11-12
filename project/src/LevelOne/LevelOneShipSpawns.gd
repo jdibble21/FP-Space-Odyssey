@@ -2,7 +2,7 @@ extends Node
 
 signal boss_released
 
-const MAX_FORMATIONS := 3
+const MAX_FORMATIONS := 9
 
 export (PackedScene) var _boss
 export (PackedScene) var _basic_ship
@@ -22,7 +22,7 @@ var _basic_formation_three := {
 	"pos2":[332,-136],
 	"pos3":[402,-136]
 }
-var _formation_num := 0
+var formation_num := 0
 
 func _ready():
 	randomize()
@@ -49,10 +49,11 @@ func _get_formation(num):
 
 
 func _on_FormationSpawnTimer_timeout():
-	_formation_num += 1
-	if _formation_num == 7:
+	print("formation num: " + str(formation_num))
+	formation_num += 1
+	if formation_num == 7:
 		$FormationSpawnTimer.wait_time = 2.5
-	if _formation_num > MAX_FORMATIONS:
+	if formation_num >= MAX_FORMATIONS:
 		remove_child($FormationSpawnTimer)
 		_spawn_levelone_boss()
 		return

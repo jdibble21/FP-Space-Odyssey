@@ -2,6 +2,7 @@
 # animations
 extends KinematicBody2D
 
+signal cheats_enabled
 signal player_hit
 signal player_defeated
 signal enemy_destroyed
@@ -70,6 +71,7 @@ func _on_HitBox_hit(area):
 		
 func _activate_cheats():
 	print("CHEATS ENABLED")
+	emit_signal("cheats_enabled")
 	_player_lives = 100000
 	
 	
