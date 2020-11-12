@@ -37,10 +37,12 @@ centered = false
 
 [node name="ShipSpawns" type="Node" parent="."]
 script = ExtResource( 7 )
+_boss = ExtResource( 10 )
 _basic_ship = ExtResource( 1 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
 wait_time = 4.0
+autostart = true
 
 [node name="HazardTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -54,8 +56,5 @@ stream = ExtResource( 9 )
 volume_db = -9.087
 
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
-
-[node name="LevelOneBoss" parent="." instance=ExtResource( 10 )]
-position = Vector2( 0, 95 )
 [connection signal="timeout" from="ShipSpawns/FormationSpawnTimer" to="ShipSpawns" method="_on_FormationSpawnTimer_timeout"]
 [connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]

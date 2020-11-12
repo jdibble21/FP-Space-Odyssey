@@ -6,6 +6,7 @@ export (PackedScene) var StandardBullet
 export (PackedScene) var PhotonBullet
 
 var _travel_right := true
+var _stop_yaxis_travel := false
 var current_muzzle
 
 onready var _muzzle_one = $Muzzle1
@@ -14,18 +15,23 @@ onready var _muzzle_three = $Muzzle3
 onready var _muzzle_four = $Muzzle4
 
 func _ready():
-	pass # Replace with function body.
+	position = Vector2(350,-100)
+	
 	
 func _process(delta):
-	pass
+	if !_stop_yaxis_travel:
+		position += transform.y * SPEED * delta
+		if position.y >= 120:
+			_stop_yaxis_travel = true
+		return
 	if _travel_right:
 		#position += transform.y * SPEED * delta
 		position += transform.x * SPEED * delta
-		if position.x >= 700:
+		if position.x >= 650:
 			_travel_right = false
 	if !_travel_right:
 		position -= transform.x * SPEED * delta
-		if position.x <= 0:
+		if position.x <= 50:
 			_travel_right = true
 	
 
@@ -54,4 +60,10 @@ func _fire_standard_bullet():
 	var root_attach = get_tree().get_root().get_node("LevelOne")
 	root_attach.add_child(b)
 	b.transform = current_muzzle.global_transform
-	
+
+
+func _on_SpecialAttackDelay_timeout():
+	var b = PhotonBullet.instance()
+	var root_attach = get_tree().get_root().get_node("LevelOne")
+	root_attach.add_child(b)
+	b.transform = $MuzzleSpecial.global_transform
