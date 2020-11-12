@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=1]
 [ext_resource path="res://src/Bosses/LevelOneBoss.gd" type="Script" id=2]
@@ -18,6 +18,12 @@ animations = [ {
 "speed": 15.0
 } ]
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.12549, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
 [node name="LevelOneBoss" type="KinematicBody2D" groups=[
 "boss",
 ]]
@@ -33,7 +39,7 @@ PhotonBullet = ExtResource( 4 )
 ]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
-polygon = PoolVector2Array( -53.3682, -94.3671, -67.3518, -89.7978, -54.6282, -22.5516, -46.1615, -2.88165, -10.2474, 95.2016, 13.3495, 95.6735, 29.1194, 50.5723, 67.6222, -89.3259, 57.5048, -93.7372 )
+polygon = PoolVector2Array( -52.7136, -91.9538, -67.3518, -89.7978, -54.6282, -22.5516, -46.1615, -2.88165, -10.2474, 95.2016, 13.3495, 95.6735, 29.1194, 50.5723, 67.6222, -89.3259, 56.3039, -91.9538 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 0.4 )
@@ -131,7 +137,9 @@ flip_v = true
 margin_left = -59.0
 margin_top = -109.0
 margin_right = 61.0
-margin_bottom = -95.0
+margin_bottom = -98.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 custom_colors/font_color = Color( 0, 1, 0.152941, 1 )
 custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
 value = 100.0
