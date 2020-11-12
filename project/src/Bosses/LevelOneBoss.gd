@@ -51,7 +51,6 @@ func _on_StandardAttackDelay_timeout():
 	
 func _fire_standard_bullet():
 	var b = StandardBullet.instance()
-	# change to actual root
 	var root_attach = get_tree().get_root().get_node("LevelOne")
 	root_attach.add_child(b)
 	b.transform = current_muzzle.global_transform
