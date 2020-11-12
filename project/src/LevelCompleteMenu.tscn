@@ -1,0 +1,89 @@
+[gd_scene format=2]
+
+[node name="LevelCompleteMenu" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.391
+margin_top = -246.5
+margin_right = 194.609
+margin_bottom = 246.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompleteLabel" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -55.5
+margin_top = 13.0
+margin_right = 55.5
+margin_bottom = 27.0
+text = "LEVEL COMPLETE!"
+align = 1
+
+[node name="RegularDestroyedLabel" type="Label" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 22.0
+margin_top = -160.0
+margin_right = 206.0
+margin_bottom = -146.0
+text = "Regular Enemies Destroyed: "
+align = 1
+
+[node name="PowerupsCollectLabel" type="Label" parent="Panel"]
+margin_left = 71.8903
+margin_top = 122.5
+margin_right = 201.89
+margin_bottom = 153.5
+text = "Powerups Collected:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossTimeLabel" type="Label" parent="Panel"]
+margin_left = 66.0969
+margin_top = 153.5
+margin_right = 204.097
+margin_bottom = 167.5
+text = "Time to Defeat Boss: "
+
+[node name="ReturnMenuButton" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -73.0
+margin_top = -49.0
+margin_right = 73.0
+margin_bottom = -29.0
+text = "Return to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="Button" parent="Panel"]
+margin_left = 238.391
+margin_top = 398.5
+margin_right = 343.391
+margin_bottom = 418.5
+text = "Play Next Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReplayLevelButton" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -141.109
+margin_top = -94.5
+margin_right = -37.1091
+margin_bottom = -74.5
+text = "Replay"

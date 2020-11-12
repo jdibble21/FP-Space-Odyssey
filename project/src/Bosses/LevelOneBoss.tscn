@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=1]
 [ext_resource path="res://src/Bosses/LevelOneBoss.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sound_assets/434834__notyermom__laser.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_04_png_processed.png" type="Texture" id=6]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=7]
+[ext_resource path="res://assets/frames/explosion_frames.tres" type="SpriteFrames" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,12 +17,19 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[node name="LevelOneBoss" type="KinematicBody2D"]
+[node name="LevelOneBoss" type="KinematicBody2D" groups=[
+"boss",
+]]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 StandardBullet = ExtResource( 3 )
 PhotonBullet = ExtResource( 4 )
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=[
+"boss",
+]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
 polygon = PoolVector2Array( -53.3682, -94.3671, -67.3518, -89.7978, -54.6282, -22.5516, -46.1615, -2.88165, -10.2474, 95.2016, 13.3495, 95.6735, 29.1194, 50.5723, 67.6222, -89.3259, 57.5048, -93.7372 )
@@ -29,6 +37,57 @@ polygon = PoolVector2Array( -53.3682, -94.3671, -67.3518, -89.7978, -54.6282, -2
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 40.2779, -59.9323 )
+frames = ExtResource( 8 )
+animation = "destroyed"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Time1" type="Timer" parent="AnimatedSprite"]
+wait_time = 0.5
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( -29.8985, -28.4678 )
+frames = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Time2" type="Timer" parent="AnimatedSprite2"]
+wait_time = 0.8
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 11.0643, -8.24069 )
+frames = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Time3" type="Timer" parent="AnimatedSprite3"]
+wait_time = 0.4
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
+position = Vector2( -16.129, 25.4712 )
+frames = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Time4" type="Timer" parent="AnimatedSprite4"]
+wait_time = 0.6
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
+position = Vector2( 14.5694, 52.2035 )
+frames = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Time5" type="Timer" parent="AnimatedSprite5"]
+wait_time = 0.25
 
 [node name="Muzzle1" type="Position2D" parent="."]
 position = Vector2( -40.8478, 8.15333 )
@@ -46,12 +105,10 @@ position = Vector2( 48.6223, -17.1184 )
 position = Vector2( 0.46759, 92.6362 )
 
 [node name="StandardAttackDelay" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+wait_time = 4.0
 
 [node name="SpecialAttackDelay" type="Timer" parent="."]
 wait_time = 7.0
-autostart = true
 
 [node name="SpecialAttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
@@ -68,5 +125,24 @@ position = Vector2( 24, -70 )
 frames = SubResource( 1 )
 animation = "active"
 flip_v = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = -59.0
+margin_top = -109.0
+margin_right = 61.0
+margin_bottom = -95.0
+custom_colors/font_color = Color( 0, 1, 0.152941, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+[connection signal="timeout" from="AnimatedSprite/Time1" to="." method="_on_Time1_timeout"]
+[connection signal="timeout" from="AnimatedSprite2/Time2" to="." method="_on_Time2_timeout"]
+[connection signal="timeout" from="AnimatedSprite3/Time3" to="." method="_on_Time3_timeout"]
+[connection signal="timeout" from="AnimatedSprite4/Time4" to="." method="_on_Time4_timeout"]
+[connection signal="timeout" from="AnimatedSprite5/Time5" to="." method="_on_Time5_timeout"]
 [connection signal="timeout" from="StandardAttackDelay" to="." method="_on_StandardAttackDelay_timeout"]
 [connection signal="timeout" from="SpecialAttackDelay" to="." method="_on_SpecialAttackDelay_timeout"]

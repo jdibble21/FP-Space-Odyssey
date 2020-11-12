@@ -21,7 +21,9 @@ func _ready():
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 # warning-ignore:return_value_discarded
 	$Player.connect("enemy_destroyed",self,"_add_score")
-	$ShipSpawns.connect("boss_released",self,"_disable_scroll")
+# warning-ignore:return_value_discarded
+	$ShipSpawns.connect("boss_released",self,"_boss_setup")
+	$LevelOneBoss.connect("boss_defeated",self,"_on_level_complete")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
@@ -61,8 +63,19 @@ func _on_pause_pressed():
 func _add_score():
 	_ships_destroyed += 1
 	
-func _disable_scroll():
+func _boss_setup():
 	_scrolling_enabled = false
+	$HazardTimer.stop()
+	$LevelOneBoss.set_process(true)
+	$LevelOneBoss/HitBox.show()
+	$LevelOneBoss/StandardAttackDelay.start()
+	$LevelOneBoss/SpecialAttackDelay.start()
+	
+	
+func _on_level_complete():
+	remove_child($LevelOneBoss)
+	print("LEVEL COMPLETE")
+	pass
 	
 	
 func _on_hazard_timer_timeout():

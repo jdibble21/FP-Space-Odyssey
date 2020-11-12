@@ -2,7 +2,7 @@ extends Node
 
 signal boss_released
 
-const MAX_FORMATIONS := 10 
+const MAX_FORMATIONS := 3
 
 export (PackedScene) var _boss
 export (PackedScene) var _basic_ship
@@ -50,7 +50,8 @@ func _get_formation(num):
 
 func _on_FormationSpawnTimer_timeout():
 	_formation_num += 1
-	print("spawning formation: "+str(_formation_num))
+	if _formation_num == 7:
+		$FormationSpawnTimer.wait_time = 2.5
 	if _formation_num > MAX_FORMATIONS:
 		remove_child($FormationSpawnTimer)
 		_spawn_levelone_boss()
@@ -72,8 +73,8 @@ func _spawn_basic_ship_formation(formation):
 	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
 	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
 	
+	
 func _spawn_levelone_boss():
-	print("BOSS TIME!")
 	emit_signal("boss_released")
 	var boss = _boss.instance()
 	add_child(boss)
