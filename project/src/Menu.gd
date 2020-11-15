@@ -23,8 +23,6 @@ func _on_SpriteFlyByTimer_timeout():
 	#yield(get_node("AnimationPlayer"), "animation_finished")
 	#$AnimationPlayer.play("boss_ship")
 	yield(get_node("AnimationPlayer"),"animation_finished")
-	pass
-
 
 
 func _on_LevelOneButton_pressed():
