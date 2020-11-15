@@ -23,7 +23,9 @@ func _ready():
 	$Player.connect("enemy_destroyed",self,"_add_score")
 # warning-ignore:return_value_discarded
 	$Player.connect("cheats_enabled",self,"_activate_cheats")
+# warning-ignore:return_value_discarded
 	$ShipSpawns.connect("boss_released",self,"_boss_setup")
+# warning-ignore:return_value_discarded
 	$LevelOneBoss.connect("boss_defeated",self,"_on_level_complete")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()

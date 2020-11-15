@@ -119,6 +119,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="OptionsButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -4.5
+margin_right = 53.0
+margin_bottom = 27.5
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LevelSelectPanel" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -164,20 +178,6 @@ margin_top = 5.0
 margin_right = 47.0
 margin_bottom = 25.0
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -52.0
-margin_top = -4.5
-margin_right = 53.0
-margin_bottom = 27.5
-text = "OPTIONS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -359,8 +359,8 @@ flip_v = true
 wait_time = 10.0
 autostart = true
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/PlayBackButton" to="." method="_on_PlayBackButton_pressed"]
-[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="OptionsPanel/OptionsBackButton" to="." method="_on_OptionsBackButton_pressed"]
 [connection signal="timeout" from="ThreeShipTimer" to="." method="_on_SpriteFlyByTimer_timeout"]

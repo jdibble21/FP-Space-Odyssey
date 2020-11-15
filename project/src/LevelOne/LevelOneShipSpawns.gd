@@ -59,15 +59,15 @@ func _on_FormationSpawnTimer_timeout():
 	formation_num += 1
 	if formation_num == 7:
 		$FormationSpawnTimer.wait_time = 2.5
-	if formation_num >= MAX_FORMATIONS:
-		remove_child($FormationSpawnTimer)
-		_spawn_levelone_boss()
-		return
 	# Every timer timeout, a random formation is selected and spawned
 	var _new_formation_num := randi()%3+1
 	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
 	if formation_num >= 7:
 		_spawn_advanced_ship_formation()
+	if formation_num >= MAX_FORMATIONS:
+		remove_child($FormationSpawnTimer)
+		_spawn_levelone_boss()
+		return
 	
 	
 func _spawn_basic_ship_formation(formation):
@@ -97,5 +97,4 @@ func _spawn_advanced_ship_formation():
 	
 func _spawn_levelone_boss():
 	emit_signal("boss_released")
-	var boss = _boss.instance()
-	add_child(boss)
+	
