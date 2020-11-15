@@ -107,14 +107,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -52.5
-margin_top = -22.5
-margin_right = 52.5
-margin_bottom = 22.5
+margin_left = -52.0
+margin_top = -51.0
+margin_right = 53.0
+margin_bottom = -19.0
 custom_colors/font_color_disabled = Color( 0.658824, 0.00784314, 0.00784314, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "PLAY!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -4.5
+margin_right = 53.0
+margin_bottom = 27.5
+text = "OPTIONS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -192,6 +206,161 @@ flip_v = true
 [node name="BossShipTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="LevelSelectPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -91.0
+margin_top = -114.0
+margin_right = 91.0
+margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelOneButton" type="Button" parent="LevelSelectPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -38.5
+margin_top = 38.0
+margin_right = 38.5
+margin_bottom = 58.0
+text = "Level One"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelTwoButton" type="Button" parent="LevelSelectPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.5
+margin_top = -10.0
+margin_right = 56.5
+margin_bottom = 10.0
+text = "Level Two (WIP)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBackButton" type="Button" parent="LevelSelectPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 25.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -181.5
+margin_top = -174.5
+margin_right = 181.5
+margin_bottom = 106.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MuteMusicLabel" type="Label" parent="OptionsPanel"]
+margin_left = 211.0
+margin_top = 39.7247
+margin_right = 286.0
+margin_bottom = 55.7247
+text = "Mute Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsBackButton" type="Button" parent="OptionsPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 25.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="OptionsPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -29.5
+margin_top = 4.0
+margin_right = 29.5
+margin_bottom = 18.0
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeSlider" type="VSlider" parent="OptionsPanel"]
+margin_left = 38.0
+margin_top = 35.0
+margin_right = 54.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSlider" type="VSlider" parent="OptionsPanel"]
+margin_left = 115.502
+margin_top = 35.0
+margin_right = 131.502
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeLabel" type="Label" parent="OptionsPanel"]
+margin_top = 192.869
+margin_right = 91.0
+margin_bottom = 206.869
+text = "Music 
+Volume"
+align = 1
+
+[node name="SFXVolumeLabel" type="Label" parent="OptionsPanel"]
+margin_left = 57.0
+margin_top = 192.869
+margin_right = 195.0
+margin_bottom = 240.869
+text = "Sound Effects 
+Volume
+"
+align = 1
+
+[node name="MusicMuteCheck" type="CheckBox" parent="OptionsPanel"]
+margin_left = 182.158
+margin_top = 35.0
+margin_right = 206.158
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXMuteCheck" type="CheckBox" parent="OptionsPanel"]
+margin_left = 182.158
+margin_top = 85.5
+margin_right = 206.158
+margin_bottom = 109.5
+
+[node name="MuteSFXLabel" type="Label" parent="OptionsPanel"]
+margin_left = 211.0
+margin_top = 92.2695
+margin_right = 333.0
+margin_bottom = 106.269
+text = "Mute Sound Effects"
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="timeout" from="ThreeShipTimer" to="." method="_on_SpriteFlyByTimer_timeout"]
-[connection signal="timeout" from="BossShipTimer" to="." method="_on_BossShipTimer_timeout"]
+[connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/PlayBackButton" to="." method="_on_PlayBackButton_pressed"]
+[connection signal="pressed" from="OptionsPanel/OptionsBackButton" to="." method="_on_OptionsBackButton_pressed"]
