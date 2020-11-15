@@ -2,10 +2,11 @@ extends Node
 
 signal boss_released
 
-const MAX_FORMATIONS := 9
+const MAX_FORMATIONS := 8
 
 export (PackedScene) var _boss
 export (PackedScene) var _basic_ship
+export (PackedScene) var _advanced_ship
 
 var _basic_formation_one := {
 	"pos1":[50,-153],
@@ -21,6 +22,11 @@ var _basic_formation_three := {
 	"pos1":[354,-73],
 	"pos2":[332,-136],
 	"pos3":[402,-136]
+}
+var _advanced_formation_one := {
+	"pos1":[219,-28],
+	"pos2":[496,-28],
+	"pos3":[354,-73]
 }
 var formation_num := 0
 
@@ -60,13 +66,27 @@ func _on_FormationSpawnTimer_timeout():
 	# Every timer timeout, a random formation is selected and spawned
 	var _new_formation_num := randi()%3+1
 	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
+	if formation_num >= 7:
+		_spawn_advanced_ship_formation()
 	
 	
 func _spawn_basic_ship_formation(formation):
-	# Refactor for Iteration 2 for less messy repeating code
 	var _ship_one = _basic_ship.instance()
 	var _ship_two = _basic_ship.instance()
 	var _ship_three = _basic_ship.instance()
+	add_child(_ship_one)
+	add_child(_ship_two)
+	add_child(_ship_three)
+	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
+	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
+	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
+	
+	
+func _spawn_advanced_ship_formation():
+	var formation = _advanced_formation_one
+	var _ship_one = _advanced_ship.instance()
+	var _ship_two = _advanced_ship.instance()
+	var _ship_three = _advanced_ship.instance()
 	add_child(_ship_one)
 	add_child(_ship_two)
 	add_child(_ship_three)

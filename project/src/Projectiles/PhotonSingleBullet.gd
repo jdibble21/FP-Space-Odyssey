@@ -3,7 +3,7 @@ extends Area2D
 const SPEED := 240
 
 func _ready():
-	pass 
+	$FiringSound.play()
 
 
 func _process(delta):
