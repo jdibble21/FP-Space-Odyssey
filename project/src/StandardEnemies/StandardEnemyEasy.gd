@@ -25,7 +25,7 @@ func _process(delta):
 		_fire()
 		_time_elapsed = 0.0
 	position += transform.y * SPEED * delta
-	if position.y >= 800:
+	if position.y >= 805:
 		queue_free()
 	
 

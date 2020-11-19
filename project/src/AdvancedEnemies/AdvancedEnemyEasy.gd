@@ -28,7 +28,6 @@ func _process(delta):
 		
 func _firing_control():
 	for i in range(0,2):
-		print("firing at muzzle" + str(i+1))
 		var timer = Timer.new()
 		timer.set_wait_time(0.1)
 		add_child(timer)

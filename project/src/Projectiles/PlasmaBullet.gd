@@ -1,16 +1,20 @@
 extends Area2D
 
+signal hit_enemy
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const SPEED := 700
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite.play("active")
+	
+func _physics_process(delta):
+	position += transform.y * -SPEED * delta
+	if position.y <= 0:
+		queue_free()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_PlasmaBullet_area_entered(area):
+	if area.is_in_group("enemy_ship") or area.is_in_group("hazard") and !area.is_in_group("enemy_bullet"):
+		emit_signal("hit_enemy")
+		queue_free()
+

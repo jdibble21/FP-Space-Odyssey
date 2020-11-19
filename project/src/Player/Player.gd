@@ -8,12 +8,16 @@ signal player_defeated
 signal enemy_destroyed
 
 export (PackedScene) var Bullet
+export (PackedScene) var PlasmaBullet
 export var velocity := 600
 export var sideways_velocity := 500
 
 var current_pos := Vector2()
 var _screen_size
 var player_lives := 2
+var _plasma_bullet_powerup_active := false
+var _current_special_muzzle := 0
+var _auto_fire_timer := 0.0 
 
 func _ready():
 	_screen_size = get_viewport_rect().size
@@ -22,7 +26,12 @@ func _ready():
   
 
 func _process(delta):
-	if Input.is_action_just_pressed("fire"):
+	_auto_fire_timer += delta
+	if Input.is_action_pressed("fire") and _plasma_bullet_powerup_active:
+		if _auto_fire_timer >= 0.1:
+			_fire_auto_plasma()
+			_auto_fire_timer = 0.0
+	if Input.is_action_just_pressed("fire") and !_plasma_bullet_powerup_active:
 		_fire()
 	if Input.is_action_just_pressed("cheats"):
 		_activate_cheats()
@@ -46,11 +55,22 @@ func _process(delta):
 	
 	
 func _fire():
-	var b = Bullet.instance()
-	b.connect("hit_enemy",self,"_on_enemy_destroyed")
-	owner.add_child(b)
-	b.transform = $Muzzle.global_transform
+	var first_b = Bullet.instance()
+	first_b.connect("hit_enemy",self,"_on_enemy_destroyed")
+	owner.add_child(first_b)
+	first_b.transform = $Muzzle.global_transform
+	
 
+func _fire_auto_plasma():
+	var b = PlasmaBullet.instance()
+	#b.connect("hit_enemy",self,"_on_enemy_destroyed")
+	owner.add_child(b)
+	b.transform = $SpecialMuzzleOne.global_transform
+	var a = PlasmaBullet.instance()
+	#a.connect("hit_enemy",self,"_on_enemy_destroyed")
+	owner.add_child(a)
+	a.transform = $SpecialMuzzleTwo.global_transform
+	
 
 func _on_HitBox_hit(area):
 	if area.is_in_group("health_powerup") and !area.is_in_group("used"):
@@ -74,6 +94,7 @@ func _on_HitBox_hit(area):
 func _activate_cheats():
 	print("CHEATS ENABLED")
 	emit_signal("cheats_enabled")
+	_plasma_bullet_powerup_active = true
 	player_lives = 100000
 	
 	
