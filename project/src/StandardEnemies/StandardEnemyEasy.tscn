@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Projectiles/EnemyStandardBullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Explosion01_Frame_06_png_processed.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/PixelSpaceRage/256px/Enemy02Red_Frame_1_png_processed.png" type="Texture" id=12]
 [ext_resource path="res://src/StandardEnemies/StandardEnemyEasy.gd" type="Script" id=13]
 [ext_resource path="res://assets/sound_assets/enemy_destroyed.ogg" type="AudioStream" id=14]
+[ext_resource path="res://src/PowerUps/LifePowerUp.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.9355
@@ -40,6 +41,7 @@ radius = 30.0772
 ]]
 script = ExtResource( 13 )
 Bullet = ExtResource( 1 )
+HealthPowerup = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
