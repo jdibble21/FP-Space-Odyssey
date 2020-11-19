@@ -18,6 +18,7 @@ animations = [ {
 } ]
 
 [node name="EnemyStandardBullet" type="Area2D" groups=[
+"enemy_bullet",
 "hazard",
 ]]
 script = ExtResource( 2 )

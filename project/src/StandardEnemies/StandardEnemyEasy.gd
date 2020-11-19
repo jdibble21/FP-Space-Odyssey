@@ -11,6 +11,7 @@ export (PackedScene) var AttackPowerup
 var _initial_fire_delay := randi()%6+1
 var _fire_delay := randi()%8+2
 var _powerup_drop_chance := randi()%3+1
+var _powerup_released := false
 var _time_elapsed := 0.0
 
 func _ready():
@@ -49,7 +50,8 @@ func _on_HitBox_area_entered(area):
 		queue_free()
 		
 func _check_powerup_drop():
-	if _powerup_drop_chance == 2:
+	if _powerup_drop_chance == 2 and !_powerup_released:
+		_powerup_released = true
 		var power_up = HealthPowerup.instance()
 		power_up.position = self.position
 		print("DROPPING POWERUP")
