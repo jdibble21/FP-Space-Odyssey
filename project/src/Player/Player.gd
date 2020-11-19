@@ -53,6 +53,8 @@ func _fire():
 
 
 func _on_HitBox_hit(area):
+	if area.is_in_group("health_powerup"):
+		_player_lives += 1
 	if area.is_in_group("hazard"):
 		emit_signal("player_hit")
 		_player_lives -= 1

@@ -7,6 +7,7 @@ export (PackedScene) var Bullet
 
 var _initial_fire_delay := randi()%6+1
 var _fire_delay := randi()%8+2
+var _powerup_drop_chance := randi()%4+1
 var _time_elapsed := 0.0
 
 func _ready():
