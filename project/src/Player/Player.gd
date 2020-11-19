@@ -14,6 +14,7 @@ export var sideways_velocity := 500
 
 var current_pos := Vector2()
 var _screen_size
+var powerups_collected := 0
 var player_lives := 2
 var _plasma_bullet_powerup_active := false
 var _current_special_muzzle := 0
@@ -73,7 +74,12 @@ func _fire_auto_plasma():
 	
 
 func _on_HitBox_hit(area):
+	if area.is_in_group("plasma_powerup") and !area.is_in_group("used"):
+		powerups_collected += 1
+		_plasma_bullet_powerup_active = true
+		$SpecialAttackTimer.start()
 	if area.is_in_group("health_powerup") and !area.is_in_group("used"):
+		powerups_collected += 1
 		player_lives += 1
 	if area.is_in_group("hazard"):
 		emit_signal("player_hit")
@@ -100,3 +106,7 @@ func _activate_cheats():
 	
 func _on_enemy_destroyed():
 	emit_signal("enemy_destroyed")
+
+
+func _on_SpecialAttackTimer_timeout():
+	_plasma_bullet_powerup_active = false

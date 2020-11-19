@@ -7,6 +7,8 @@ export (PackedScene) var Bullet
 var _current_muzzle
 var _fire_delay := randi()%4+1
 var _time_elapsed := 0.0
+var _current_scene_name
+var _lives := 2
 
 onready var _muzzle_one = $Muzzle1
 onready var _muzzle_two = $Muzzle2
@@ -14,6 +16,8 @@ onready var _muzzle_two = $Muzzle2
 func _ready():
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
+	var current_scene = get_tree().get_current_scene()
+	_current_scene_name = current_scene.name
 
 
 func _process(delta):
@@ -42,6 +46,6 @@ func _firing_control():
 	
 func _fire():
 	var b = Bullet.instance()
-	var root_attach = get_tree().get_root().get_node("LevelOne")
+	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = _current_muzzle.global_transform

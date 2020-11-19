@@ -16,7 +16,9 @@ animations = [ {
 radius = 3.84061
 height = 16.6094
 
-[node name="PlasmaBullet" type="Area2D"]
+[node name="PlasmaBullet" type="Area2D" groups=[
+"player_bullet",
+]]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
