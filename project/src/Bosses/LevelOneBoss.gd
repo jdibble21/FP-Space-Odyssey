@@ -1,3 +1,5 @@
+# Contains boss health, timers for attacks, movement parameters, 
+# destroyed animation and defeat signal
 extends KinematicBody2D
 
 signal boss_defeated

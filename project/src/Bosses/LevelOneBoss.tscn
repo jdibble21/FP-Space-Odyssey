@@ -119,7 +119,7 @@ wait_time = 7.0
 
 [node name="SpecialAttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = 0.009
+bus = "SFX"
 
 [node name="ExhaustOne" type="AnimatedSprite" parent="."]
 position = Vector2( -24, -70 )
@@ -150,7 +150,7 @@ __meta__ = {
 
 [node name="DestroyedSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
-volume_db = -7.123
+bus = "SFX"
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="timeout" from="AnimatedSprite/Time1" to="." method="_on_Time1_timeout"]
 [connection signal="timeout" from="AnimatedSprite2/Time2" to="." method="_on_Time2_timeout"]

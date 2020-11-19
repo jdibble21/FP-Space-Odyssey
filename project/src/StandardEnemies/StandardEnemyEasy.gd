@@ -33,6 +33,7 @@ func _fire():
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		$AnimatedSprite.play("destroyed")
+		$DestroyedSound.play()
 		$Muzzle/Sprite.hide()
 		var timer = Timer.new()
 		timer.set_wait_time(0.3)

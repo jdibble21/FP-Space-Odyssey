@@ -33,4 +33,5 @@ flip_v = true
 [node name="FiringSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 volume_db = -9.503
+bus = "SFX"
 [connection signal="area_entered" from="." to="." method="_on_EnemyStandardBullet_area_entered"]
