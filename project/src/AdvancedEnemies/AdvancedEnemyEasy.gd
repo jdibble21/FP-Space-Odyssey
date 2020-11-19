@@ -14,6 +14,7 @@ onready var _muzzle_one = $Muzzle1
 onready var _muzzle_two = $Muzzle2
 
 func _ready():
+	$ExplosionSprite.hide()
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
 	var current_scene = get_tree().get_current_scene()
@@ -49,3 +50,17 @@ func _fire():
 	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = _current_muzzle.global_transform
+
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("player_bullet"):
+		$Exhaust1.hide()
+		$Exhaust2.hide()
+		$ExplosionSprite.show()
+		$ExplosionSprite.play("destroyed")
+		var timer = Timer.new()
+		timer.set_wait_time(0.3)
+		add_child(timer)
+		timer.start()
+		yield(timer, "timeout")
+		queue_free()
