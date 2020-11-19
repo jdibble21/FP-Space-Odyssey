@@ -114,3 +114,5 @@ text = "Mute Sound Effects"
 [connection signal="pressed" from="OptionsBackButton" to="." method="_on_OptionsBackButton_pressed"]
 [connection signal="value_changed" from="MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="SFXVolumeSlider" to="." method="_on_SFXVolumeSlider_value_changed"]
+[connection signal="toggled" from="MusicMuteCheck" to="." method="_on_MusicMuteCheck_toggled"]
+[connection signal="toggled" from="SFXMuteCheck" to="." method="_on_SFXMuteCheck_toggled"]

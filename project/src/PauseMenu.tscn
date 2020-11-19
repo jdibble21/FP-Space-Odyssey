@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/OptionsPanel.tscn" type="PackedScene" id=2]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -12,10 +13,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -154.0
-margin_top = -148.5
-margin_right = 154.0
-margin_bottom = 148.5
+margin_left = -179.0
+margin_top = -140.0
+margin_right = 179.0
+margin_bottom = 149.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,11 +36,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -59.0
-margin_right = 32.0
-margin_bottom = -39.0
+margin_left = -38.0
+margin_top = -58.5
+margin_right = 40.0
+margin_bottom = -38.5
 text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="PausePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = -9.5
+margin_right = 39.0
+margin_bottom = 10.5
+text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,12 +65,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -38.5
-margin_top = -10.0
+margin_top = 39.0
 margin_right = 38.5
-margin_bottom = 10.0
+margin_bottom = 59.0
 text = "Exit Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OptionsPanel" parent="." instance=ExtResource( 2 )]
+margin_left = -181.0
+margin_top = -140.0
+margin_right = 179.0
+margin_bottom = 149.0
 [connection signal="pressed" from="PausePanel/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="PausePanel/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="PausePanel/ReturnMenuButton" to="." method="_on_ReturnMenuButton_pressed"]

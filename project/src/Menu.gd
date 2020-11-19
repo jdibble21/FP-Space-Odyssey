@@ -17,8 +17,6 @@ func _ready():
 	AudioServer.set_bus_volume_db(_music_bus,-8.0)
 	AudioServer.set_bus_volume_db(_sfx_bus,-8.0)
 
-func _process(delta):
-	pass
 
 func _on_PlayButton_pressed():
 	$LevelSelectPanel.show()
