@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=7]
 [ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=8]
 [ext_resource path="res://src/OptionsPanel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/font_assets/sofachrome.regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 10 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "boss_ship"
@@ -91,13 +96,12 @@ centered = false
 
 [node name="TitleLabel" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -164.0
-margin_right = 48.0
-margin_bottom = -150.0
+margin_left = -225.0
+margin_top = 212.0
+margin_right = 225.0
+margin_bottom = 251.0
+custom_fonts/font = SubResource( 5 )
 text = "Space Odyssey"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,6 +188,7 @@ __meta__ = {
 }
 
 [node name="OptionsPanel" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="InstructionsLabel" type="Label" parent="."]
 anchor_left = 0.5
