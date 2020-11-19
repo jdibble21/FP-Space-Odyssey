@@ -56,6 +56,8 @@ func _process(delta):
 	
 	
 func _fire():
+	
+	print(owner)
 	var first_b = Bullet.instance()
 	first_b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(first_b)

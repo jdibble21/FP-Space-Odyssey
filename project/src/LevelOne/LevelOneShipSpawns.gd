@@ -71,12 +71,13 @@ func _on_FormationSpawnTimer_timeout():
 	
 	
 func _spawn_basic_ship_formation(formation):
+	var root_attach = get_tree().get_root().get_node(owner.name)
 	var _ship_one = _basic_ship.instance()
 	var _ship_two = _basic_ship.instance()
 	var _ship_three = _basic_ship.instance()
-	add_child(_ship_one)
-	add_child(_ship_two)
-	add_child(_ship_three)
+	root_attach.call_deferred("add_child",_ship_one)
+	root_attach.call_deferred("add_child",_ship_two)
+	root_attach.call_deferred("add_child",_ship_three)
 	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
 	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
 	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])

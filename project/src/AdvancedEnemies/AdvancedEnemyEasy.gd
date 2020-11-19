@@ -17,8 +17,7 @@ func _ready():
 	$ExplosionSprite.hide()
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
-	var current_scene = get_tree().get_current_scene()
-	_current_scene_name = current_scene.name
+	_current_scene_name = get_parent().name
 
 
 func _process(delta):
