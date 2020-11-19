@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/sound_assets/416488__vabsounds__arcadeauto.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=7]
 [ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=8]
+[ext_resource path="res://src/OptionsPanel.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "boss_ship"
@@ -182,108 +183,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsPanel" type="Panel" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -181.5
-margin_top = -174.5
-margin_right = 181.5
-margin_bottom = 106.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MuteMusicLabel" type="Label" parent="OptionsPanel"]
-margin_left = 211.0
-margin_top = 39.7247
-margin_right = 286.0
-margin_bottom = 55.7247
-text = "Mute Music"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsBackButton" type="Button" parent="OptionsPanel"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 47.0
-margin_bottom = 25.0
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TitleLabel" type="Label" parent="OptionsPanel"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -29.5
-margin_top = 4.0
-margin_right = 29.5
-margin_bottom = 18.0
-text = "OPTIONS"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MusicVolumeSlider" type="VSlider" parent="OptionsPanel"]
-margin_left = 38.0
-margin_top = 35.0
-margin_right = 54.0
-margin_bottom = 180.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VSlider" type="VSlider" parent="OptionsPanel"]
-margin_left = 115.502
-margin_top = 35.0
-margin_right = 131.502
-margin_bottom = 180.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MusicVolumeLabel" type="Label" parent="OptionsPanel"]
-margin_top = 192.869
-margin_right = 91.0
-margin_bottom = 206.869
-text = "Music 
-Volume"
-align = 1
-
-[node name="SFXVolumeLabel" type="Label" parent="OptionsPanel"]
-margin_left = 57.0
-margin_top = 192.869
-margin_right = 195.0
-margin_bottom = 240.869
-text = "Sound Effects 
-Volume
-"
-align = 1
-
-[node name="MusicMuteCheck" type="CheckBox" parent="OptionsPanel"]
-margin_left = 182.158
-margin_top = 35.0
-margin_right = 206.158
-margin_bottom = 59.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SFXMuteCheck" type="CheckBox" parent="OptionsPanel"]
-margin_left = 182.158
-margin_top = 85.5
-margin_right = 206.158
-margin_bottom = 109.5
-
-[node name="MuteSFXLabel" type="Label" parent="OptionsPanel"]
-margin_left = 211.0
-margin_top = 92.2695
-margin_right = 333.0
-margin_bottom = 106.269
-text = "Mute Sound Effects"
+[node name="OptionsPanel" parent="." instance=ExtResource( 9 )]
 
 [node name="InstructionsLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -311,7 +211,7 @@ __meta__ = {
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = -9.087
+bus = "Music"
 
 [node name="SideShip1" type="Sprite" parent="."]
 position = Vector2( -62.2957, 340 )
@@ -362,5 +262,4 @@ autostart = true
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/PlayBackButton" to="." method="_on_PlayBackButton_pressed"]
-[connection signal="pressed" from="OptionsPanel/OptionsBackButton" to="." method="_on_OptionsBackButton_pressed"]
 [connection signal="timeout" from="ThreeShipTimer" to="." method="_on_SpriteFlyByTimer_timeout"]

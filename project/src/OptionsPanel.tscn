@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/OptionsPanel.gd" type="Script" id=1]
+
+[node name="OptionsPanel" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -181.5
+margin_top = -174.5
+margin_right = 181.5
+margin_bottom = 106.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MuteMusicLabel" type="Label" parent="."]
+margin_left = 211.0
+margin_top = 39.7247
+margin_right = 286.0
+margin_bottom = 55.7247
+text = "Mute Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsBackButton" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 25.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -29.5
+margin_top = 4.0
+margin_right = 29.5
+margin_bottom = 18.0
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeSlider" type="VSlider" parent="."]
+margin_left = 38.0
+margin_top = 35.0
+margin_right = 54.0
+margin_bottom = 180.0
+min_value = -22.0
+max_value = 6.0
+value = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXVolumeSlider" type="VSlider" parent="."]
+margin_left = 115.502
+margin_top = 35.0
+margin_right = 131.502
+margin_bottom = 180.0
+min_value = -22.0
+max_value = 6.0
+value = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeLabel" type="Label" parent="."]
+margin_top = 192.869
+margin_right = 91.0
+margin_bottom = 206.869
+text = "Music 
+Volume"
+align = 1
+
+[node name="SFXVolumeLabel" type="Label" parent="."]
+margin_left = 57.0
+margin_top = 192.869
+margin_right = 195.0
+margin_bottom = 240.869
+text = "Sound Effects 
+Volume
+"
+align = 1
+
+[node name="MusicMuteCheck" type="CheckBox" parent="."]
+margin_left = 182.158
+margin_top = 35.0
+margin_right = 206.158
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXMuteCheck" type="CheckBox" parent="."]
+margin_left = 182.158
+margin_top = 85.5
+margin_right = 206.158
+margin_bottom = 109.5
+
+[node name="MuteSFXLabel" type="Label" parent="."]
+margin_left = 211.0
+margin_top = 92.2695
+margin_right = 333.0
+margin_bottom = 106.269
+text = "Mute Sound Effects"
+[connection signal="pressed" from="OptionsBackButton" to="." method="_on_OptionsBackButton_pressed"]
+[connection signal="value_changed" from="MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="SFXVolumeSlider" to="." method="_on_SFXVolumeSlider_value_changed"]
