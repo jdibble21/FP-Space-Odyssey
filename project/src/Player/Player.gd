@@ -13,7 +13,7 @@ export var sideways_velocity := 500
 
 var current_pos := Vector2()
 var _screen_size
-var _player_lives := 1
+var player_lives := 2
 
 func _ready():
 	_screen_size = get_viewport_rect().size
@@ -53,12 +53,12 @@ func _fire():
 
 
 func _on_HitBox_hit(area):
-	if area.is_in_group("health_powerup"):
-		_player_lives += 1
+	if area.is_in_group("health_powerup") and !area.is_in_group("used"):
+		player_lives += 1
 	if area.is_in_group("hazard"):
 		emit_signal("player_hit")
-		_player_lives -= 1
-		if _player_lives <= 0:
+		player_lives -= 1
+		if player_lives < 0:
 			set_process(false)
 			$ShipSprite.play("destroyed")
 			$Muzzle/Sprite.hide()
@@ -74,7 +74,7 @@ func _on_HitBox_hit(area):
 func _activate_cheats():
 	print("CHEATS ENABLED")
 	emit_signal("cheats_enabled")
-	_player_lives = 100000
+	player_lives = 100000
 	
 	
 func _on_enemy_destroyed():

@@ -30,6 +30,7 @@ func _ready():
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
+	
 
 
 func _physics_process(_delta):
@@ -39,6 +40,7 @@ func _physics_process(_delta):
 		_background.motion_offset.y += SPEED
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
 	$HUD/ScoreLabel.text = "SHIPS DESTROYED: " + str(_ships_destroyed)
+	$HUD/LivesLabel.text = "EXTRA LIVES: " + str($Player.player_lives)
 	
 	
 func _process(_delta):
@@ -48,7 +50,9 @@ func _process(_delta):
 		queue_free()
 		get_tree().get_root().add_child(_menu_scene.instance())
 		
+		
 func _on_player_defeat():
+	set_physics_process(false)
 	$HazardTimer.stop()
 	$HUD.set_process(false)
 	$MusicLoop.stop()
@@ -65,6 +69,7 @@ func _on_pause_pressed():
 	
 func _add_score():
 	_ships_destroyed += 1
+	
 	
 func _boss_setup():
 	_scrolling_enabled = false
