@@ -88,7 +88,7 @@ func _on_level_complete():
 
 
 func _activate_cheats():
-	print("set formation to 1")
+	print("ending formations...")
 	$ShipSpawns.formation_num = 9
 	
 	

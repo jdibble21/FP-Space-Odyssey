@@ -51,6 +51,7 @@ func _on_HitBox_area_entered(area):
 		yield(timer, "timeout")
 		queue_free()
 		
+		
 func _check_powerup_drop():
 	if _powerup_drop_chance == 2 and !_powerup_released:
 		_powerup_released = true

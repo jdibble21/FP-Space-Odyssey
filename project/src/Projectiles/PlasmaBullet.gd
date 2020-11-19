@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 
 func _on_PlasmaBullet_area_entered(area):
-	if area.is_in_group("enemy_ship") or area.is_in_group("hazard") and !area.is_in_group("enemy_bullet"):
+	if (area.is_in_group("enemy_ship") or area.is_in_group("hazard")) and !area.is_in_group("enemy_bullet"):
 		emit_signal("hit_enemy")
 		queue_free()
 

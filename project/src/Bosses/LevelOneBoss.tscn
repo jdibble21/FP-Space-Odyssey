@@ -36,6 +36,7 @@ PhotonBullet = ExtResource( 4 )
 
 [node name="HitBox" type="Area2D" parent="." groups=[
 "boss",
+"hazard",
 ]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]

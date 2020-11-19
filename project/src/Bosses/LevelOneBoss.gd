@@ -84,7 +84,7 @@ func _on_SpecialAttackDelay_timeout():
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
-		_current_health -= 4
+		_current_health -= 2
 		
 		
 func _hide_sprites():
