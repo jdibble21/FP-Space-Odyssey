@@ -94,6 +94,6 @@ position = Vector2( 12.5, -2 )
 position = Vector2( -14.5, -2 )
 
 [node name="SpecialAttackTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 4.0
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_hit"]
 [connection signal="timeout" from="SpecialAttackTimer" to="." method="_on_SpecialAttackTimer_timeout"]

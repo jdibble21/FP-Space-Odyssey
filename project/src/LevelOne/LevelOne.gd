@@ -32,7 +32,6 @@ func _ready():
 	$MusicLoop.play()
 	
 
-
 func _physics_process(_delta):
 	if _scrolling_enabled:
 		if _background.position.y >= 800:
@@ -86,6 +85,7 @@ func _on_level_complete():
 	$LevelCompleteMenu/WinSound.play()
 	$LevelCompleteMenu/CompletePanel.show()
 	$Player.set_process(false)
+
 
 func _activate_cheats():
 	print("set formation to 1")
