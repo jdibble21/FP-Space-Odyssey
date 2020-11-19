@@ -17,10 +17,7 @@ func _on_OptionsBackButton_pressed():
 
 
 func _on_MusicMuteCheck_toggled(button_pressed):
-	if button_pressed:
-		AudioServer.set_bus_mute(_music_bus,true)
-	if !button_pressed:
-		AudioServer.set_bus_mute(_music_bus,false)
+	AudioServer.set_bus_mute(_music_bus,button_pressed)
 
 
 func _on_SFXMuteCheck_toggled(button_pressed):
