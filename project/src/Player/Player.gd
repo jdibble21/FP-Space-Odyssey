@@ -75,11 +75,11 @@ func _fire_auto_plasma():
 	
 
 func _on_HitBox_hit(area):
-	if area.is_in_group("plasma_powerup") and !area.is_in_group("used"):
+	if area.is_in_group("plasma_powerup"):
 		powerups_collected += 1
 		_plasma_bullet_powerup_active = true
 		$SpecialAttackTimer.start()
-	if area.is_in_group("health_powerup") and !area.is_in_group("used"):
+	if area.is_in_group("health_powerup"):
 		powerups_collected += 1
 		player_lives += 1
 	if area.is_in_group("hazard"):

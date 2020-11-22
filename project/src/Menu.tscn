@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
@@ -11,9 +11,6 @@
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 10 )
-
-[sub_resource type="Animation" id=2]
-length = 7.0
 
 [sub_resource type="Animation" id=3]
 length = 3.5
@@ -61,6 +58,18 @@ script = ExtResource( 4 )
 scale = Vector2( 2.75, 3.125 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="SideShip1" type="Sprite" parent="."]
+position = Vector2( -95.1964, 349 )
+texture = ExtResource( 3 )
+
+[node name="MainShip" type="Sprite" parent="."]
+position = Vector2( -88.9169, 286 )
+texture = ExtResource( 2 )
+
+[node name="SideShip2" type="Sprite" parent="."]
+position = Vector2( -97.6617, 212 )
+texture = ExtResource( 3 )
 
 [node name="TitleLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -172,24 +181,11 @@ __meta__ = {
 stream = ExtResource( 6 )
 bus = "Music"
 
-[node name="SideShip1" type="Sprite" parent="."]
-position = Vector2( -62.2957, 340 )
-texture = ExtResource( 3 )
-
-[node name="MainShip" type="Sprite" parent="."]
-position = Vector2( -94.2957, 268 )
-texture = ExtResource( 2 )
-
-[node name="SideShip2" type="Sprite" parent="."]
-position = Vector2( -62.2957, 198 )
-texture = ExtResource( 3 )
-
 [node name="ThreeShipTimer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/boss_ship = SubResource( 2 )
 anims/flyby = SubResource( 3 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]

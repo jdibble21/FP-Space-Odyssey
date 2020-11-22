@@ -10,6 +10,7 @@ const SPEED := 1
 export (PackedScene) var _asteroid_one 
 var _ships_destroyed := 0
 var _scrolling_enabled := true
+var _boss_fight_time := 0.0
 
 onready var _HUD := $HUD
 onready var _background := $ParallaxBackground/ParallaxLayer
@@ -26,6 +27,7 @@ func _ready():
 	$ShipSpawns.connect("boss_released",self,"_boss_setup")
 # warning-ignore:return_value_discarded
 	$ShipSpawns.connect("ship_destroyed",self,"_add_score")
+# warning-ignore:return_value_discarded
 	$LevelOneBoss.connect("boss_defeated",self,"_on_level_complete")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
@@ -42,7 +44,9 @@ func _physics_process(_delta):
 	$HUD/LivesLabel.text = "EXTRA LIVES: " + str($Player.player_lives)
 	
 	
-func _process(_delta):
+func _process(delta):
+	if !_scrolling_enabled:
+		_boss_fight_time += delta
 	if Input.is_action_pressed("pause_game"):
 		_on_pause_pressed()
 	if Input.is_action_pressed("return_to_menu"):
@@ -86,7 +90,8 @@ func _on_level_complete():
 	$LevelCompleteMenu/CompletePanel.show()
 	$Player.set_process(false)
 	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = "Total Ships Destroyed: " +str(_ships_destroyed)
-
+	$LevelCompleteMenu/CompletePanel/PowerupsCollectLabel.text = "Powerups Collected: " + str($Player.powerups_collected)
+	$LevelCompleteMenu/CompletePanel/BossTimeLabel.text = "Time to Defeat Boss: " + str(int(_boss_fight_time))
 
 func _activate_cheats():
 	print("ending formations...")
