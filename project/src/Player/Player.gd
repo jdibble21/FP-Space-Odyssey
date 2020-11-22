@@ -65,11 +65,11 @@ func _fire():
 func _fire_auto_plasma():
 	$PlasmaShotSound.play()
 	var b = PlasmaBullet.instance()
-	#b.connect("hit_enemy",self,"_on_enemy_destroyed")
+	b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(b)
 	b.transform = $SpecialMuzzleOne.global_transform
 	var a = PlasmaBullet.instance()
-	#a.connect("hit_enemy",self,"_on_enemy_destroyed")
+	a.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(a)
 	a.transform = $SpecialMuzzleTwo.global_transform
 	
@@ -84,6 +84,7 @@ func _on_HitBox_hit(area):
 		player_lives += 1
 	if area.is_in_group("hazard"):
 		emit_signal("player_hit")
+		$AnimationPlayer.play()
 		player_lives -= 1
 		if player_lives < 0:
 			set_process(false)

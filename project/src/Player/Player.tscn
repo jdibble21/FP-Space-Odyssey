@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/256px/PlayerBlue_Frame_01_png_processed.png" type="Texture" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
@@ -46,6 +46,45 @@ animations = [ {
 "name": "active",
 "speed": 10.0
 } ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "player_hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShipSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.301, 0.4, 0.5, 0.603148, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, false, true, false, true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ShipExhaustSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Muzzle/Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 308.951, 99.143 )
@@ -101,5 +140,8 @@ wait_time = 4.0
 stream = ExtResource( 20 )
 volume_db = 1.891
 bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/player_hit = SubResource( 3 )
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_hit"]
 [connection signal="timeout" from="SpecialAttackTimer" to="." method="_on_SpecialAttackTimer_timeout"]

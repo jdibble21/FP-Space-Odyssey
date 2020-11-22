@@ -85,6 +85,7 @@ func _on_level_complete():
 	$LevelCompleteMenu/WinSound.play()
 	$LevelCompleteMenu/CompletePanel.show()
 	$Player.set_process(false)
+	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = _ships_destroyed
 
 
 func _activate_cheats():
