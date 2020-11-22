@@ -3,6 +3,7 @@
 extends Node
 
 signal boss_released
+signal ship_destroyed
 
 const MAX_FORMATIONS := 8
 
@@ -59,14 +60,13 @@ func _get_formation(num):
 func _on_FormationSpawnTimer_timeout():
 	print("formation num: " + str(formation_num))
 	formation_num += 1
-	if formation_num == 7:
-		$FormationSpawnTimer.wait_time = 2.5
 	# Every timer timeout, a random formation is selected and spawned
-	var _new_formation_num := randi()%3+1
-	_spawn_basic_ship_formation(_get_formation(_new_formation_num))
-	if formation_num >= 7:
+	if formation_num < MAX_FORMATIONS:
+		var _new_formation_num := randi()%3+1
+		_spawn_basic_ship_formation(_get_formation(_new_formation_num))
+	if formation_num == MAX_FORMATIONS:
 		_spawn_advanced_ship_formation()
-	if formation_num >= MAX_FORMATIONS:
+	if formation_num >= MAX_FORMATIONS+1:
 		remove_child($FormationSpawnTimer)
 		_spawn_levelone_boss()
 		return
@@ -80,6 +80,9 @@ func _spawn_basic_ship_formation(formation):
 	root_attach.call_deferred("add_child",_ship_one)
 	root_attach.call_deferred("add_child",_ship_two)
 	root_attach.call_deferred("add_child",_ship_three)
+	_ship_one.connect("destroyed",self,"_on_ship_destroyed")
+	_ship_two.connect("destroyed",self,"_on_ship_destroyed")
+	_ship_three.connect("destroyed",self,"_on_ship_destroyed")
 	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
 	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
 	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
@@ -100,4 +103,7 @@ func _spawn_advanced_ship_formation():
 	
 func _spawn_levelone_boss():
 	emit_signal("boss_released")
+	
+func _on_ship_destroyed():
+	emit_signal("ship_destroyed")
 	

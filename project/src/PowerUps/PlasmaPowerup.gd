@@ -4,6 +4,8 @@ extends StaticBody2D
 
 const SPEED := 100
 
+var _used := false
+
 func _process(delta):
 	position += transform.y * SPEED * delta
 	if position.y >= 800:
@@ -11,11 +13,12 @@ func _process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("player") and !area.is_in_group("used"):
+	if area.is_in_group("player") and !_used:
+		print("picked up plasma!")
+		_used = true
 		$PickupSound.play()
 		$Sprite.hide()
-		add_to_group("used")
-
+		
 
 func _on_PickupSound_finished():
 	queue_free()

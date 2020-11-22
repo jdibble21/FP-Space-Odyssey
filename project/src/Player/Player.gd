@@ -5,7 +5,7 @@ extends KinematicBody2D
 signal cheats_enabled
 signal player_hit
 signal player_defeated
-signal enemy_destroyed
+
 
 export (PackedScene) var Bullet
 export (PackedScene) var PlasmaBullet
@@ -57,7 +57,7 @@ func _process(delta):
 	
 func _fire():
 	var first_b = Bullet.instance()
-	first_b.connect("hit_enemy",self,"_on_enemy_destroyed")
+	#first_b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(first_b)
 	first_b.transform = $Muzzle.global_transform
 	
@@ -65,11 +65,11 @@ func _fire():
 func _fire_auto_plasma():
 	$PlasmaShotSound.play()
 	var b = PlasmaBullet.instance()
-	b.connect("hit_enemy",self,"_on_enemy_destroyed")
+	#b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(b)
 	b.transform = $SpecialMuzzleOne.global_transform
 	var a = PlasmaBullet.instance()
-	a.connect("hit_enemy",self,"_on_enemy_destroyed")
+	#a.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(a)
 	a.transform = $SpecialMuzzleTwo.global_transform
 	
@@ -84,7 +84,7 @@ func _on_HitBox_hit(area):
 		player_lives += 1
 	if area.is_in_group("hazard"):
 		emit_signal("player_hit")
-		$AnimationPlayer.play()
+		$AnimationPlayer.play("player_hit")
 		player_lives -= 1
 		if player_lives < 0:
 			set_process(false)

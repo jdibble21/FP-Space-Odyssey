@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite.png" type="Texture" id=3]
 [ext_resource path="res://src/Menu.gd" type="Script" id=4]
-[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_04_png_processed.png" type="Texture" id=5]
 [ext_resource path="res://assets/sound_assets/416488__vabsounds__arcadeauto.ogg" type="AudioStream" id=6]
-[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_05_png_processed.png" type="Texture" id=7]
-[ext_resource path="res://assets/boss_assets/destroyer.png" type="Texture" id=8]
 [ext_resource path="res://src/OptionsPanel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/font_assets/sofachrome.regular.ttf" type="DynamicFontData" id=10]
 
@@ -17,18 +14,6 @@ font_data = ExtResource( 10 )
 
 [sub_resource type="Animation" id=2]
 length = 7.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("BossShip:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 350.646, -124.939 ), Vector2( 350.64, 930.215 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 length = 3.5
@@ -68,22 +53,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( -62.2957, 198 ), Vector2( 752.983, 198 ) ]
 }
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "active",
-"speed": 15.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "active",
-"speed": 15.0
-} ]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -222,32 +191,6 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/boss_ship = SubResource( 2 )
 anims/flyby = SubResource( 3 )
-
-[node name="BossShip" type="Sprite" parent="."]
-position = Vector2( 350.646, -124.939 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Exhaust1" type="AnimatedSprite" parent="BossShip"]
-position = Vector2( 63.4058, -176.389 )
-scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 4 )
-animation = "active"
-flip_v = true
-
-[node name="Exhaust2" type="AnimatedSprite" parent="BossShip"]
-position = Vector2( -67.0151, -176.504 )
-scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 5 )
-animation = "active"
-flip_v = true
-
-[node name="BossShipTimer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]

@@ -4,14 +4,13 @@
 extends KinematicBody2D
 
 signal destroyed
-const SPEED := 105
+const SPEED := 115
 
 export (PackedScene) var Bullet 
 export (PackedScene) var HealthPowerup
 export (PackedScene) var PlasmaAttackPowerup
 
-var _initial_fire_delay := randi()%6+1
-var _fire_delay := randi()%8+2
+var _fire_delay := randi()%6+2
 var _powerup_drop_chance := randi()%12+1
 var _powerup_released := false
 var _time_elapsed := 0.0

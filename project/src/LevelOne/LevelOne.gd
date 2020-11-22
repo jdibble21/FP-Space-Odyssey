@@ -16,6 +16,7 @@ onready var _background := $ParallaxBackground/ParallaxLayer
 onready var _menu_scene := load("res://src/Menu.tscn")
 onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
 
+
 func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
@@ -26,6 +27,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	$ShipSpawns.connect("boss_released",self,"_boss_setup")
 # warning-ignore:return_value_discarded
+	$ShipSpawns.connect("ship_destroyed",self,"_add_score")
 	$LevelOneBoss.connect("boss_defeated",self,"_on_level_complete")
 	$Player.current_pos = $PlayerSpawn.position
 	$PauseMenu/PausePanel.hide()
@@ -85,7 +87,7 @@ func _on_level_complete():
 	$LevelCompleteMenu/WinSound.play()
 	$LevelCompleteMenu/CompletePanel.show()
 	$Player.set_process(false)
-	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = _ships_destroyed
+	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = "Total Ships Destroyed: " +str(_ships_destroyed)
 
 
 func _activate_cheats():

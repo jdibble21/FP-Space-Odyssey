@@ -10,8 +10,6 @@ onready var _sfx_bus = AudioServer.get_bus_index("SFX")
 
 func _ready():
 	$MenuMusic.play()
-	$BossShip/Exhaust1.play("active")
-	$BossShip/Exhaust2.play("active")
 	$LevelSelectPanel.hide()
 	$OptionsPanel.hide()
 	AudioServer.set_bus_volume_db(_music_bus,-8.0)
@@ -24,9 +22,6 @@ func _on_PlayButton_pressed():
 
 func _on_SpriteFlyByTimer_timeout():
 	$AnimationPlayer.play("flyby")
-	#yield(get_node("AnimationPlayer"), "animation_finished")
-	#$AnimationPlayer.play("boss_ship")
-	yield(get_node("AnimationPlayer"),"animation_finished")
 
 
 func _on_LevelOneButton_pressed():
