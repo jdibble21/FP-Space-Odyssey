@@ -2,7 +2,7 @@
 extends KinematicBody2D
 
 signal destroyed
-const SPEED := 60
+const SPEED := 105
 
 export (PackedScene) var Bullet 
 export (PackedScene) var HealthPowerup

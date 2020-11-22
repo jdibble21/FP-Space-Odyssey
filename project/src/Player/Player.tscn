@@ -100,5 +100,6 @@ wait_time = 4.0
 [node name="PlasmaShotSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 20 )
 volume_db = 1.891
+bus = "SFX"
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_hit"]
 [connection signal="timeout" from="SpecialAttackTimer" to="." method="_on_SpecialAttackTimer_timeout"]
