@@ -1,3 +1,5 @@
+# Handles spawning of Level one ships via separate formations randomly 
+# selected each spawn wave, handled by a timer timeout() function
 extends Node
 
 signal boss_released

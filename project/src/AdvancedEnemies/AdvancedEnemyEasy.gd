@@ -1,3 +1,5 @@
+# Controls hit detection and movement of advanced enemy. Fires two projectiles
+# at once on a shorter fire delay than standard enemies.
 extends KinematicBody2D
 
 const SPEED := 80
@@ -18,7 +20,6 @@ func _ready():
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
 	_current_scene_name = get_parent().get_parent().name
-	print(_current_scene_name)
 
 
 func _process(delta):

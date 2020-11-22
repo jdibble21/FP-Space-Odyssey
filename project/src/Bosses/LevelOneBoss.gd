@@ -8,17 +8,16 @@ const SPEED := 60
 
 export (PackedScene) var StandardBullet
 export (PackedScene) var PhotonBullet
-export (int) var total_health := 100
 
 var _travel_right := true
 var _stop_yaxis_travel := false
 var current_muzzle
 
-onready var _current_health = total_health
-onready var _muzzle_one = $Muzzle1
-onready var _muzzle_two = $Muzzle2
-onready var _muzzle_three = $Muzzle3
-onready var _muzzle_four = $Muzzle4
+onready var _current_health := 100
+onready var _muzzle_one := $Muzzle1
+onready var _muzzle_two := $Muzzle2
+onready var _muzzle_three := $Muzzle3
+onready var _muzzle_four := $Muzzle4
 
 func _ready():
 	_hide_sprites()

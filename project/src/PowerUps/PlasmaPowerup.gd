@@ -1,3 +1,5 @@
+# Controls powerup downward movement, and detects when player enters area, then 
+# plays pickup sound and hides sprite
 extends StaticBody2D
 
 const SPEED := 100

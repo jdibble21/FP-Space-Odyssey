@@ -1,3 +1,5 @@
+# Controls projectile movement and animated sprite, 
+# detects when out of play area to delete self or is in contact with player
 extends Area2D
 
 const SPEED := 240

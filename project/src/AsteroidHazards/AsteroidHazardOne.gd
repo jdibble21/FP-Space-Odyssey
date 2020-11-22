@@ -1,7 +1,9 @@
-# Asteroid hazard that spawns randomly on the x axis
+# Asteroid hazard that spawns randomly on the x axis via the level scripts off
+# a timer
 extends Area2D
 
 const SPEED := 80
+
 onready var _sprite_image := randi()%3+1
 
 func _ready():

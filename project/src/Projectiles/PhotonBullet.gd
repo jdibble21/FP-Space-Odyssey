@@ -1,3 +1,4 @@
+# Controls five separate sprite velocities for level one boss special attack
 extends Node
 
 const SPEED := 250

@@ -1,3 +1,5 @@
+# Panel that appears at the end of a level, with stats about the session and 
+# options to replay or go back to menu
 extends CanvasLayer
 
 onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")

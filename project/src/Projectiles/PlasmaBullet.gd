@@ -1,3 +1,5 @@
+# Controls projectile movement and animated sprite, 
+# detects when out of play area to delete self or is in contact with enemy
 extends Area2D
 
 signal hit_enemy

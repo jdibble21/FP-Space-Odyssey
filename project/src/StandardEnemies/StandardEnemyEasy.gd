@@ -1,4 +1,6 @@
 # Controls movement, and random firing delay for enemy type. 
+# IGNORED WARNINGS:
+# connect() warning returns a value I do not need or use, so warning is not needed
 extends KinematicBody2D
 
 signal destroyed
@@ -16,6 +18,7 @@ var _time_elapsed := 0.0
 var current_scene_name := ""
 
 func _ready():
+# warning-ignore:return_value_discarded
 	connect("destroyed",self,"_check_powerup_drop")
 	$AnimatedSprite.play("normal")
 	current_scene_name = get_parent().name
