@@ -11,6 +11,7 @@ export (PackedScene) var HealthPowerup
 export (PackedScene) var PlasmaAttackPowerup
 
 var _fire_delay := randi()%6+2
+var _disable_hitbox := false
 var _powerup_drop_chance := randi()%12+1
 var _powerup_released := false
 var _time_elapsed := 0.0
@@ -41,7 +42,8 @@ func _fire():
 	
 
 func _on_HitBox_area_entered(area):
-	if area.is_in_group("player_bullet"):
+	if area.is_in_group("player_bullet") and !_disable_hitbox:
+		_disable_hitbox = true
 		$AnimatedSprite.play("destroyed")
 		$DestroyedSound.play()
 		$Muzzle/Sprite.hide()

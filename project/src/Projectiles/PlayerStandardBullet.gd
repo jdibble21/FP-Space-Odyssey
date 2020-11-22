@@ -1,8 +1,6 @@
 # Controls regular player attack projectile movement and hit detection
 extends Area2D
 
-signal hit_enemy
-
 const SPEED := 650
 
 func _ready():

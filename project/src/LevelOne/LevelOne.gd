@@ -5,7 +5,7 @@
 # nor do I need to use, even though the signal itself is still used
 extends Node2D
 
-const SPEED := 2
+const SPEED := 1
 
 export (PackedScene) var _asteroid_one 
 var _ships_destroyed := 0
@@ -20,8 +20,6 @@ onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
 func _ready():
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
-# warning-ignore:return_value_discarded
-	$Player.connect("enemy_destroyed",self,"_add_score")
 # warning-ignore:return_value_discarded
 	$Player.connect("cheats_enabled",self,"_activate_cheats")
 # warning-ignore:return_value_discarded

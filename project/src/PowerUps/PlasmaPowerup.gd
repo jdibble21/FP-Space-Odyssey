@@ -14,7 +14,6 @@ func _process(delta):
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("player") and !_used:
-		print("picked up plasma!")
 		_used = true
 		$PickupSound.play()
 		$Sprite.hide()
