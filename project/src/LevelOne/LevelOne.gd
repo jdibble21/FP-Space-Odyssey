@@ -34,7 +34,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if _scrolling_enabled:
-		if _background.position.y >= 800:
+		if _background.position.y >= 815:
 			_background.motion_offset.y = 0
 		_background.motion_offset.y += SPEED
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
