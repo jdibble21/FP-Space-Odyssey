@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Projectiles/PlayerStandardBullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Minigun_Small_png_processed.png" type="Texture" id=2]
+[ext_resource path="res://assets/sound_assets/347171__davidsraba__shoot-sound.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.65454
@@ -20,4 +21,7 @@ position = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="FiringSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.673
+bus = "SFX"
 [connection signal="area_entered" from="." to="." method="_on_PlayerStandardBullet_area_entered"]

@@ -5,6 +5,9 @@ signal hit_enemy
 
 const SPEED := 650
 
+func _ready():
+	$FiringSound.play()
+
 func _physics_process(delta):
 	position += transform.y * -SPEED * delta
 	if position.y <= 0:

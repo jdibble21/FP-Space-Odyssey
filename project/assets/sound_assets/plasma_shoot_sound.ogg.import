@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/plasma_shoot_sound.ogg-712d9a10495eb9b7565b48bbb6dbebc5.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/plasma_shoot_sound.ogg"
+dest_files=[ "res://.import/plasma_shoot_sound.ogg-712d9a10495eb9b7565b48bbb6dbebc5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

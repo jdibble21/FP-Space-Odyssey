@@ -63,6 +63,7 @@ func _fire():
 	
 
 func _fire_auto_plasma():
+	$PlasmaShotSound.play()
 	var b = PlasmaBullet.instance()
 	#b.connect("hit_enemy",self,"_on_enemy_destroyed")
 	owner.add_child(b)
