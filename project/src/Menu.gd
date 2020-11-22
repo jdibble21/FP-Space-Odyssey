@@ -25,8 +25,7 @@ func _on_SpriteFlyByTimer_timeout():
 
 
 func _on_LevelOneButton_pressed():
-	queue_free()
-	get_tree().get_root().add_child(_level_one_scene.instance())
+	$AnimationPlayer.play("transition")
 
 
 func _on_PlayBackButton_pressed():
@@ -37,3 +36,7 @@ func _on_OptionsButton_pressed():
 	$OptionsPanel.show()
 
 
+func _on_transition_animation_finished(anim_name):
+	if anim_name == "transition":
+		queue_free()
+		get_tree().get_root().add_child(_level_one_scene.instance())

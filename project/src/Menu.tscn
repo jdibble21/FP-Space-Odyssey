@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite.png" type="Texture" id=3]
 [ext_resource path="res://src/Menu.gd" type="Script" id=4]
+[ext_resource path="res://assets/misc_assets/transition_screen.png" type="Texture" id=5]
 [ext_resource path="res://assets/sound_assets/416488__vabsounds__arcadeauto.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/OptionsPanel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/font_assets/sofachrome.regular.ttf" type="DynamicFontData" id=10]
@@ -51,6 +52,21 @@ tracks/2/keys = {
 "values": [ Vector2( -62.2957, 198 ), Vector2( 752.983, 198 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 350.658, -600 ), Vector2( 350.658, 600.416 ) ]
+}
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 4 )
 
@@ -60,15 +76,15 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="SideShip1" type="Sprite" parent="."]
-position = Vector2( -95.1964, 349 )
+position = Vector2( -110.321, 368.605 )
 texture = ExtResource( 3 )
 
 [node name="MainShip" type="Sprite" parent="."]
-position = Vector2( -88.9169, 286 )
+position = Vector2( -121.479, 284.5 )
 texture = ExtResource( 2 )
 
 [node name="SideShip2" type="Sprite" parent="."]
-position = Vector2( -97.6617, 212 )
+position = Vector2( -114.354, 172.573 )
 texture = ExtResource( 3 )
 
 [node name="TitleLabel" type="Label" parent="."]
@@ -185,10 +201,17 @@ bus = "Music"
 wait_time = 8.0
 autostart = true
 
+[node name="TransitionScreen" type="Sprite" parent="."]
+position = Vector2( 350.658, -600 )
+scale = Vector2( 1.36914, 2.2572 )
+texture = ExtResource( 5 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flyby = SubResource( 3 )
+anims/transition = SubResource( 4 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/PlayBackButton" to="." method="_on_PlayBackButton_pressed"]
 [connection signal="timeout" from="ThreeShipTimer" to="." method="_on_SpriteFlyByTimer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_transition_animation_finished"]

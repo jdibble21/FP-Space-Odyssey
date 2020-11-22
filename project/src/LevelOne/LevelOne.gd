@@ -19,6 +19,7 @@ onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
 
 
 func _ready():
+	$AnimationPlayer.play("transition")
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 # warning-ignore:return_value_discarded
@@ -91,7 +92,8 @@ func _on_level_complete():
 	$Player.set_process(false)
 	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = "Total Ships Destroyed: " +str(_ships_destroyed)
 	$LevelCompleteMenu/CompletePanel/PowerupsCollectLabel.text = "Powerups Collected: " + str($Player.powerups_collected)
-	$LevelCompleteMenu/CompletePanel/BossTimeLabel.text = "Time to Defeat Boss: " + str(int(_boss_fight_time))
+	$LevelCompleteMenu/CompletePanel/BossTimeLabel.text = "Time to Defeat Boss: " + str(int(_boss_fight_time)) + " seconds"
+
 
 func _activate_cheats():
 	print("ending formations...")
