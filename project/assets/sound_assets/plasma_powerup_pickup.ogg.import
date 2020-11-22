@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/plasma_powerup_pickup.ogg-5c3e0fd63102f992adadfede5a5fc7d6.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/plasma_powerup_pickup.ogg"
+dest_files=[ "res://.import/plasma_powerup_pickup.ogg-5c3e0fd63102f992adadfede5a5fc7d6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

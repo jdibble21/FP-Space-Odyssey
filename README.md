@@ -30,7 +30,7 @@ This first iteration of this project has been both much more time-consuming, and
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [ ] ⭐ Support both touch and mouse/keyboard input in the Web build
-- [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
+- [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Use particle effects
