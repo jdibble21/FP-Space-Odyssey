@@ -1,10 +1,12 @@
 # FP-Space-Odyssey
 
+## Iteration 2
+
 <a href="https://bsu-cs315.github.io/FP-Space-Odyssey/" target="_blank">Play the game here!</a>
 
 ## Reflection
 
-This first iteration of this project has been both much more time-consuming, and also much smoother to develop. In particular it has become almost second nature to edit my code to comply with the style guide as I write it. This makes things much easier when it comes to final touches and saving time. My major challenge this iteration was solving the issue of having a dynamic game. Creating methods that would allow the game to have semi-random spawning for enemies and attacking delays that made sense and were clean was one that included many versions that I believe now I have figured out. 
+The second iteration I focused much more on the smaller details, like enemy spawn times and sounds, to improve the game. The biggest challenge for me was to ensure all data was flowing through the project in a smart way (i.e. not having ten different scripts delivering 5 different variables in 8 different methods) and getting the signals and groups to work properly. My favorite part was creating the boss scene, having an enemy with more intricate attack sequences and a large health pool. 
 
 ## Self-Evaluation
 
@@ -28,7 +30,7 @@ This first iteration of this project has been both much more time-consuming, and
 - [ ] ⭐ Include a dynamic (non-static) camera
 - [ ] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
-- [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
+- [X] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [ ] ⭐ Support both touch and mouse/keyboard input in the Web build
 - [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
@@ -38,7 +40,7 @@ This first iteration of this project has been both much more time-consuming, and
 - [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [ ] ⭐ Include an AI-controlled characters
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
-- [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
+- [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 According to the completed criteria, I have earned an A for this iteration.
