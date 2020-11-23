@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/StandardEnemies/StandardEnemyEasy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AsteroidHazards/AsteroidHazardOne.tscn" type="PackedScene" id=2]
@@ -13,6 +13,21 @@
 [ext_resource path="res://src/LevelCompleteMenu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyEasy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/misc_assets/transition_screen.png" type="Texture" id=13]
+
+[sub_resource type="Animation" id=2]
+resource_name = "backwards_transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 351.158, -553.247 ), Vector2( 349.911, 265 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "transition"
@@ -81,11 +96,20 @@ bus = "Music"
 [node name="LevelOneBoss" parent="." instance=ExtResource( 10 )]
 
 [node name="TransitionScreen" type="Sprite" parent="."]
-position = Vector2( 351.158, 273 )
+light_mask = 31775
+position = Vector2( 349.911, 265 )
 scale = Vector2( 1.37576, 2.01195 )
 texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/backwards_transition = SubResource( 2 )
 anims/transition = SubResource( 1 )
 [connection signal="timeout" from="ShipSpawns/FormationSpawnTimer" to="ShipSpawns" method="_on_FormationSpawnTimer_timeout"]
 [connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/PausePanel/ReturnMenuButton" to="." method="_on_ReturnMenuButton_pressed"]
+[connection signal="pressed" from="LevelCompleteMenu/CompletePanel/ReturnMenuButton" to="." method="_on_ReturnMenuButton_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="PauseMenu" method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="PauseMenu"]
+
+[editable path="LevelCompleteMenu"]

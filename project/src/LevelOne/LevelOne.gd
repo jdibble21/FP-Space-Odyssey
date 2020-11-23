@@ -51,8 +51,8 @@ func _process(delta):
 	if Input.is_action_pressed("pause_game"):
 		_on_pause_pressed()
 	if Input.is_action_pressed("return_to_menu"):
-		queue_free()
-		get_tree().get_root().add_child(_menu_scene.instance())
+		$AnimationPlayer.play("backwards_transition")
+		
 		
 		
 func _on_player_defeat():
@@ -101,6 +101,11 @@ func _activate_cheats():
 	
 	
 func _on_hazard_timer_timeout():
-	# Refactor to randomly add different types later
 	var _new_hazard = _asteroid_one.instance()
 	add_child(_new_hazard)
+
+
+func _on_ReturnMenuButton_pressed():
+	get_tree().paused = false
+	$PauseMenu/PausePanel.hide()
+	$AnimationPlayer.play("backwards_transition")

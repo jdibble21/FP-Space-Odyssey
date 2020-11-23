@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/PixelSpaceRage/PixelBackgroundSeamless.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/menu_sprite_1.png" type="Texture" id=2]
@@ -12,6 +12,21 @@
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "backwards_transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 350.658, 600.416 ), Vector2( 350.658, -602.129 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 3.5
@@ -202,13 +217,15 @@ wait_time = 8.0
 autostart = true
 
 [node name="TransitionScreen" type="Sprite" parent="."]
-position = Vector2( 350.658, -600 )
+position = Vector2( 350.658, -602.129 )
 scale = Vector2( 1.36914, 2.2572 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/backwards_transition = SubResource( 5 )
 anims/flyby = SubResource( 3 )
 anims/transition = SubResource( 4 )
+[connection signal="tree_entered" from="." to="." method="_on_MainMenu_tree_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]

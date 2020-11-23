@@ -40,3 +40,7 @@ func _on_transition_animation_finished(anim_name):
 	if anim_name == "transition":
 		queue_free()
 		get_tree().get_root().add_child(_level_one_scene.instance())
+
+
+func _on_MainMenu_tree_entered():
+	$AnimationPlayer.play("backwards_transition")
