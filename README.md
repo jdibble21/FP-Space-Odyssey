@@ -50,5 +50,17 @@ Menu music loop is "ArcadeAuto". Created by VABsounds, [CC0 1.0 Universal](http:
 Gameplay music loop is "LaserAttack". Created by VABsounds, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/).
 Source: https://freesound.org/people/VABsounds/sounds/443865/
 
+Level Complete sound is "'WIN' Video Game Sound". Created by EVRetro, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/EVRetro/sounds/495005/
+
+Player regular laser shot sound is "Shoot Sound". Created by Davidsraba, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/Davidsraba/sounds/347171/
+
+Standard enemy laser (green laser) sound is "Laser". Created by SamsterBirdies, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/SamsterBirdies/sounds/542579/
+
+Boss ship explosion sound is "Explode". Created by Bekir_VirtualDJ, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/Bekir_VirtualDJ/sounds/132833/
+
+Powerup pickup sounds, standard enemy destroy sounds and plasma shot sound is created by me
+
+Font used is "Sofachrome Font Family". Create by Raymond Larabie, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://www.1001fonts.com/sofachrome-font.html
+
 All background images, sprite images and animations are from "2D Pizel Art Space Shooter". Created by Ravenmore, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). 
 Source: https://ravenmore.itch.io/pixel-space-shooter-assets/devlog/51959/2d-pixel-art-space-shooter

@@ -17,7 +17,6 @@ onready var _background := $ParallaxBackground/ParallaxLayer
 onready var _menu_scene := load("res://src/Menu.tscn")
 onready var _gameplay_scene = load("res://src/LevelOne/LevelOne.tscn")
 
-
 func _ready():
 	$AnimationPlayer.play("transition")
 # warning-ignore:return_value_discarded
@@ -52,7 +51,6 @@ func _process(delta):
 		_on_pause_pressed()
 	if Input.is_action_pressed("return_to_menu"):
 		$AnimationPlayer.play("backwards_transition")
-		
 		
 		
 func _on_player_defeat():
