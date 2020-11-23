@@ -59,8 +59,6 @@ func _on_player_defeat():
 	$HUD.set_process(false)
 	$MusicLoop.stop()
 	$HUD/DefeatLabel.show()
-	$HUD/FinalScoreLabel.show()
-	$HUD/FinalScoreLabel.text = "Total Ships Destroyed: " + str(_ships_destroyed)
 	$Player.queue_free()
 	
 	
