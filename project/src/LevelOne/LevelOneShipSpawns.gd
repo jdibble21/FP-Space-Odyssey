@@ -58,7 +58,6 @@ func _get_formation(num):
 
 
 func _on_FormationSpawnTimer_timeout():
-	print("formation num: " + str(formation_num))
 	formation_num += 1
 	# Every timer timeout, a random formation is selected and spawned
 	if formation_num < MAX_FORMATIONS:
@@ -103,6 +102,7 @@ func _spawn_advanced_ship_formation():
 	
 func _spawn_levelone_boss():
 	emit_signal("boss_released")
+	
 	
 func _on_ship_destroyed():
 	emit_signal("ship_destroyed")

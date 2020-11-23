@@ -80,4 +80,3 @@ margin_right = 179.0
 margin_bottom = 149.0
 [connection signal="pressed" from="PausePanel/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="PausePanel/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="PausePanel/ReturnMenuButton" to="." method="_on_ReturnMenuButton_pressed"]

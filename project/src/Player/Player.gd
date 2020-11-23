@@ -6,7 +6,6 @@ signal cheats_enabled
 signal player_hit
 signal player_defeated
 
-
 export (PackedScene) var Bullet
 export (PackedScene) var PlasmaBullet
 export var velocity := 600

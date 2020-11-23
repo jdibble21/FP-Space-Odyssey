@@ -19,6 +19,7 @@ func _ready():
 	if _sprite_image == 3:
 		$Sprite3.show()
 
+
 func _process(delta):
 	position += transform.y * SPEED * delta
 	if position.y >= 800:
