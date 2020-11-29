@@ -13,7 +13,7 @@
 size = 32
 font_data = ExtResource( 10 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "backwards_transition"
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionScreen:position")
@@ -222,7 +222,7 @@ scale = Vector2( 1.36914, 2.2572 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/backwards_transition = SubResource( 5 )
+anims/backwards_transition = SubResource( 2 )
 anims/flyby = SubResource( 3 )
 anims/transition = SubResource( 4 )
 [connection signal="tree_entered" from="." to="." method="_on_MainMenu_tree_entered"]
