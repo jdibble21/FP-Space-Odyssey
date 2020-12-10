@@ -55,13 +55,15 @@ func _fire():
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
-		$Exhaust1.hide()
-		$Exhaust2.hide()
-		$ExplosionSprite.show()
-		$ExplosionSprite.play("destroyed")
-		var timer = Timer.new()
-		timer.set_wait_time(0.3)
-		add_child(timer)
-		timer.start()
-		yield(timer, "timeout")
-		queue_free()
+		_lives -= 1
+		if _lives == 0:
+			$Exhaust1.hide()
+			$Exhaust2.hide()
+			$ExplosionSprite.show()
+			$ExplosionSprite.play("destroyed")
+			var timer = Timer.new()
+			timer.set_wait_time(0.3)
+			add_child(timer)
+			timer.start()
+			yield(timer, "timeout")
+			queue_free()
