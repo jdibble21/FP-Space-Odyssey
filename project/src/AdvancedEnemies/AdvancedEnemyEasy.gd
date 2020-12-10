@@ -2,6 +2,8 @@
 # at once on a shorter fire delay than standard enemies.
 extends KinematicBody2D
 
+signal destroyed
+
 const SPEED := 80
 
 export (PackedScene) var Bullet
@@ -66,4 +68,5 @@ func _on_HitBox_area_entered(area):
 			add_child(timer)
 			timer.start()
 			yield(timer, "timeout")
+			emit_signal("destroyed")
 			queue_free()

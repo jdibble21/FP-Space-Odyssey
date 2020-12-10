@@ -171,11 +171,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LevelTwoButton" type="Button" parent="LevelSelectPanel"]
+margin_left = 53.0
+margin_top = 72.0
+margin_right = 131.0
+margin_bottom = 92.0
+text = "Level Two"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PlayBackButton" type="Button" parent="LevelSelectPanel"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 47.0
-margin_bottom = 25.0
+margin_left = 6.73859
+margin_top = 4.8999
+margin_right = 48.7386
+margin_bottom = 24.8999
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,6 +239,7 @@ anims/transition = SubResource( 4 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/LevelOneButton" to="." method="_on_LevelOneButton_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/LevelTwoButton" to="." method="_on_LevelTwoButton_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/PlayBackButton" to="." method="_on_PlayBackButton_pressed"]
 [connection signal="timeout" from="ThreeShipTimer" to="." method="_on_SpriteFlyByTimer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_transition_animation_finished"]

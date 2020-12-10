@@ -19,6 +19,7 @@ func _ready():
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 # warning-ignore:return_value_discarded
 	$Player.current_pos = $PlayerSpawn.position
+	$ShipSpawns.connect("ship_destroyed",self,"_add_score")
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 

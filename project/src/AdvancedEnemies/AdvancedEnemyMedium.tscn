@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/PixelSpaceRage/256px/Enemy01_Teal_Frame_1_png_processed.png" type="Texture" id=1]
+[ext_resource path="res://assets/PixelSpaceRage/256px/GunTurret_ExampleGun_png_processed.png" type="Texture" id=2]
+[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_01_png_processed.png" type="Texture" id=3]
+[ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_02_png_processed.png" type="Texture" id=4]
+[ext_resource path="res://src/Projectiles/EnemyStandardBullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyMedium.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 29.3408
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[node name="AdvancedEnemyMedium" type="KinematicBody2D"]
+script = ExtResource( 6 )
+Bullet = ExtResource( 5 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 0, 37 )
+
+[node name="Sprite" type="Sprite" parent="Muzzle"]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.5, 0.631579 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "active"
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource( 2 )
+
+[node name="Exhaust1" type="AnimatedSprite" parent="."]
+position = Vector2( -18, -17 )
+frames = SubResource( 3 )
+animation = "active"
+flip_v = true
+
+[node name="Exhaust2" type="AnimatedSprite" parent="."]
+position = Vector2( 17, -16 )
+frames = SubResource( 3 )
+animation = "active"
+flip_v = true

@@ -70,18 +70,20 @@ func _spawn_basic_ship_formation():
 	for i in range(0,3):
 		_spawn_ship(formation,i+1,_basic_ship)
 		
+		
 func _spawn_special_ship_formation():
-	var formation = _get_basic_formation(randi()%3+1)
+	var formation = _get_special_formation(randi()%3+1)
 	for i in range(0,4):
 		_spawn_ship(formation,i+1,_special_basic_ship)
+	
 	
 func _spawn_advanced_ship_formation():
 	for i in range(0,3):
 		_spawn_ship(_advanced_formation_one,i+1,_advanced_ship)
 	
+	
 func _spawn_speed_ship_formation():
 	for i in range(0,2):
-		print("spawning ship into formation! num:"+str(i+1))
 		_spawn_ship(_speed_formation,i+1,_speed_ship)
 	
 	
@@ -92,12 +94,23 @@ func _spawn_ship(formation_pos,set_num,ship_type):
 	_new_ship.connect("destroyed",self,"_on_ship_destroyed")
 	_new_ship.position = Vector2(formation_pos["pos"+str(set_num)][0],formation_pos["pos"+str(set_num)][1])
 
+
 func _get_basic_formation(num):
 	if num == 1:
 		return _basic_formation_one
 	if num == 2:
 		return _basic_formation_two
-
-
+func _get_special_formation(num):
+	if num == 1:
+		return _basic_special_formation_one
+	if num == 2:
+		return _basic_special_formation_two
+	if num == 3:
+		return _basic_special_formation_three
+		
+		
 func _on_SpeedShipSpawnTimer_timeout():
 	_spawn_speed_ship_formation()
+	
+func _on_ship_destroyed():
+	emit_signal("ship_destroyed")

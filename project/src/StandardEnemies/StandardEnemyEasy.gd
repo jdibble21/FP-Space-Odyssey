@@ -22,6 +22,7 @@ func _ready():
 	connect("destroyed",self,"_check_powerup_drop")
 	$AnimatedSprite.play("normal")
 	current_scene_name = get_parent().name
+	print(current_scene_name)
 	
 	
 func _process(delta):

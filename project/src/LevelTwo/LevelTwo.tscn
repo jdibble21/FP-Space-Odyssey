@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/LevelTwo/LevelTwoShipSpawns.gd" type="Script" id=1]
 [ext_resource path="res://src/LevelTwo/LevelTwo.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/StandardEnemies/StandardEnemyMedium.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyEasy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/StandardEnemies/StandardEnemyEasy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyMedium.tscn" type="PackedScene" id=13]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource( 2 )
@@ -42,12 +43,14 @@ script = ExtResource( 1 )
 _basic_ship = ExtResource( 12 )
 _speed_ship = ExtResource( 10 )
 _advanced_ship = ExtResource( 11 )
+_special_basic_ship = ExtResource( 13 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
 wait_time = 4.0
 autostart = true
 
 [node name="SpeedShipSpawnTimer" type="Timer" parent="ShipSpawns"]
+wait_time = 7.0
 
 [node name="HazardTimer" type="Timer" parent="."]
 wait_time = 5.0
