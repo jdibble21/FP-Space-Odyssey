@@ -11,7 +11,7 @@ export (PackedScene) var _boss
 export (PackedScene) var _basic_ship
 export (PackedScene) var _speed_ship
 export (PackedScene) var _advanced_ship
-export (PackedScene) var _homing_ship
+export (PackedScene) var _special_basic_ship
 
 var _speed_formation := {
 	"pos1":[502,-70],
@@ -28,15 +28,27 @@ var _basic_formation_two := {
 	"pos3":[149,-79]
 } 
 var _basic_special_formation_one := {
-	
+	"pos1":[78,-29],
+	"pos2":[114,-29],
+	"pos3":[150,-29],
+	"pos4":[186,-29]
 }
-
 var _basic_special_formation_two := {
-	
+	"pos1":[315,-25],
+	"pos2":[378,-25],
+	"pos3":[315,-88],
+	"pos4":[378,-88]
 }
-
 var _basic_special_formation_three := {
-	
+	"pos1":[529,-37],
+	"pos2":[570,-37],
+	"pos3":[611,-37],
+	"pos4":[570,-78]
+}
+var _advanced_formation_one := {
+	"pos1":[219,-28],
+	"pos2":[496,-28],
+	"pos3":[354,-73]
 }
 
 var formation_num := 0
@@ -45,8 +57,11 @@ var formation_num := 0
 func _on_FormationSpawnTimer_timeout():
 	if formation_num < 3:
 		_spawn_basic_ship_formation()
-	if formation_num >= 3 and formation_num < 6:
+	if formation_num >= 3 and formation_num < 7:
 		_spawn_special_ship_formation()
+	if formation_num >=7 and formation_num < 9:
+		_spawn_special_ship_formation()
+		_spawn_advanced_ship_formation()
 	formation_num += 1
 	
 	
@@ -56,8 +71,13 @@ func _spawn_basic_ship_formation():
 		_spawn_ship(formation,i+1,_basic_ship)
 		
 func _spawn_special_ship_formation():
-	pass
+	var formation = _get_basic_formation(randi()%3+1)
+	for i in range(0,4):
+		_spawn_ship(formation,i+1,_special_basic_ship)
 	
+func _spawn_advanced_ship_formation():
+	for i in range(0,3):
+		_spawn_ship(_advanced_formation_one,i+1,_advanced_ship)
 	
 func _spawn_speed_ship_formation():
 	for i in range(0,2):
