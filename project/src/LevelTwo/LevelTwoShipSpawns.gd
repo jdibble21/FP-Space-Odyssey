@@ -25,3 +25,7 @@ var _basic_formation_two := {
 	"pos2":[99,-110],
 	"pos3":[149,-79]
 } 
+
+
+func _on_FormationSpawnTimer_timeout():
+	

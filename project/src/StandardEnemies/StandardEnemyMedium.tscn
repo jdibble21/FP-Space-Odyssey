@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/PixelSpaceRage/256px/Enemy02Green_Frame_1_png_processed.png" type="Texture" id=1]
+[ext_resource path="res://assets/PixelSpaceRage/256px/GunTurret_ExampleGun_png_processed.png" type="Texture" id=2]
+[ext_resource path="res://src/StandardEnemies/StandardEnemyMedium.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.0739
+
+[node name="StandardEnemyMedium" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 0, 40 )
+
+[node name="Sprite" type="Sprite" parent="Muzzle"]
+position = Vector2( 0, -17.1071 )
+scale = Vector2( 0.5, 0.689846 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "active"
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource( 2 )
