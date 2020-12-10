@@ -13,7 +13,7 @@ var _lives := 2
 func _ready():
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
-	_current_scene_name = get_parent().get_parent().name
+	_current_scene_name = get_parent().name
 	print(_current_scene_name)
 	
 func _process(delta):
