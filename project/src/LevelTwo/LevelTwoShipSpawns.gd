@@ -9,6 +9,7 @@ const MAX_FORMATIONS := 8
 
 export (PackedScene) var _boss
 export (PackedScene) var _basic_ship
+export (PackedScene) var _speed_ship
 export (PackedScene) var _advanced_ship
 
 var _speed_formation := {
@@ -28,4 +29,20 @@ var _basic_formation_two := {
 
 
 func _on_FormationSpawnTimer_timeout():
+	_spawn_speed_ship_formation()
+	pass
 	
+func _spawn_speed_ship_formation():
+	for i in range(0,2):
+		print("spawning ship into formation! num:"+str(i+1))
+		_spawn_ship(_speed_formation,i+1,_speed_ship)
+	
+	
+func _spawn_ship(formation_pos,set_num,ship_type):
+	var root_attach = get_tree().get_root().get_node(owner.name)
+	var _new_ship = ship_type.instance()
+	root_attach.call_deferred("add_child",_new_ship)
+	_new_ship.connect("destroyed",self,"_on_ship_destroyed")
+	_new_ship.position = Vector2(formation_pos["pos"+str(set_num)][0],formation_pos["pos"+str(set_num)][1])
+
+
