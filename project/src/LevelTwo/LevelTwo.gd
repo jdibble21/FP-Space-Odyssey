@@ -18,9 +18,11 @@ func _ready():
 	randomize()
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
+	$Player.connect("cheats_enabled",self,"_activate_cheats")
 # warning-ignore:return_value_discarded
 	$Player.current_pos = $PlayerSpawn.position
 	$ShipSpawns.connect("ship_destroyed",self,"_add_score")
+	$ShipSpawns.connect("boss_released",self, "_boss_setup")
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 
@@ -55,6 +57,19 @@ func _on_player_defeat():
 func _on_pause_pressed():
 	get_tree().paused = true
 	$PauseMenu/PausePanel.show()
+	
+	
+func _boss_setup():
+	_scrolling_enabled = false
+	$HazardTimer.stop()
+	$LevelTwoBoss.set_process(true)
+	$LevelTwoBoss/HitBox.show()
+	$LevelTwoBoss/StandardAttackDelay.start()
+	$LevelTwoBoss/MissleAttackDelay.start()
+	
+func _activate_cheats():
+	print("ending formations...")
+	$ShipSpawns.formation_num = 9
 	
 	
 func _add_score():

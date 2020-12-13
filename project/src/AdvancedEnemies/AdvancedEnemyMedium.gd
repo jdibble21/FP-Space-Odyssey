@@ -11,6 +11,7 @@ var _current_scene_name
 var _lives := 2
 
 func _ready():
+	$DamagedAnimation.hide()
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
 	$AnimatedSprite.play("active")
@@ -37,6 +38,8 @@ func _fire():
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		_lives -= 1
+		$DamagedAnimation.show()
+		$DamagedAnimation.play("hit")
 		if _lives == 0:
 			$Muzzle/Sprite.hide()
 			$Exhaust1.hide()
@@ -49,3 +52,7 @@ func _on_HitBox_area_entered(area):
 			yield(timer, "timeout")
 			emit_signal("destroyed")
 			queue_free()
+
+
+func _on_DamagedAnimation_animation_finished():
+	$DamagedAnimation.hide()

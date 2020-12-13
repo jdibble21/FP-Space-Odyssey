@@ -1,3 +1,4 @@
+# Projectile that tracks a target's position and moves towards it with a wide turn radius. 
 extends Area2D
 
 export var speed := 300
@@ -6,7 +7,6 @@ export var steer_force := 85.0
 var velocity := Vector2.ZERO
 var acceleration := Vector2.ZERO
 var target
-	
 	
 func start(_transform, _target):
 	global_transform = _transform
@@ -32,15 +32,15 @@ func _physics_process(delta):
 
 
 func _on_Lifetime_timeout():
-	explode()
+	_explode()
 	
 	
 func _on_HomingMissle_area_entered(area):
 	if area.is_in_group("player"):
-		explode()
+		_explode()
 
 
-func explode():
+func _explode():
 	$Particles2D.emitting = false
 	$Sprite.hide()
 	$ExplosionSprite.play("destroyed")

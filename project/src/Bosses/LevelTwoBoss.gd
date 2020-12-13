@@ -17,6 +17,7 @@ onready var _current_health := 100
 
 func _ready():
 	$HitBox.hide()
+	set_process(false)
 	position = Vector2(350,-100)
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
@@ -76,4 +77,7 @@ func _fire_plasma_bullet():
 	b.transform = current_muzzle.global_transform
 
 
-
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("player_bullet"):
+		_current_health -= 2
+		

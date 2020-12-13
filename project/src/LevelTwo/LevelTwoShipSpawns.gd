@@ -59,8 +59,7 @@ var _advanced_formation_one := {
 var formation_num := 0
 
 func _ready():
-	pass
-	#_spawn_initial_formations()
+	_spawn_initial_formations()
 	
 	
 func _spawn_initial_formations():
@@ -81,6 +80,10 @@ func _on_FormationSpawnTimer_timeout():
 			$FormationSpawnTimer.wait_time = 9
 		_spawn_special_ship_formation()
 		_spawn_advanced_ship_formation()
+	if formation_num == 9:
+		remove_child($FormationSpawnTimer)
+		remove_child($SpeedShipSpawnTimer)
+		_spawn_level_two_boss()
 	formation_num += 1
 	
 	
@@ -132,6 +135,10 @@ func _get_special_formation(num):
 		return _basic_special_formation_three
 		
 		
+func _spawn_level_two_boss():
+	emit_signal("boss_released")
+	
+	
 func _on_SpeedShipSpawnTimer_timeout():
 	_spawn_speed_ship_formation()
 	

@@ -48,9 +48,11 @@ _special_basic_ship = ExtResource( 13 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
 wait_time = 4.5
+autostart = true
 
 [node name="SpeedShipSpawnTimer" type="Timer" parent="ShipSpawns"]
-wait_time = 7.0
+wait_time = 9.0
+autostart = true
 
 [node name="HazardTimer" type="Timer" parent="."]
 wait_time = 5.0

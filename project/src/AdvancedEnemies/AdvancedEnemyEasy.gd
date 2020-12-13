@@ -58,6 +58,7 @@ func _fire():
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		_lives -= 1
+		$ExplosionSprite.play("hit")
 		if _lives == 0:
 			$Exhaust1.hide()
 			$Exhaust2.hide()
