@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/misc_assets/rocket.png" type="Texture" id=1]
 [ext_resource path="res://src/Projectiles/HomingMissle.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.35487
 height = 10.7149
+
+[sub_resource type="CanvasItemMaterial" id=2]
 
 [node name="HomingMissle" type="Area2D"]
 script = ExtResource( 2 )
@@ -20,7 +22,23 @@ shape = SubResource( 1 )
 [node name="Lifetime" type="Timer" parent="."]
 
 [node name="Particles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 0, 12 )
-emitting = false
+material = SubResource( 2 )
+position = Vector2( -13.5153, 0 )
+amount = 20
+lifetime = 0.8
+randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 110.0
+gravity = Vector2( -120, 0 )
+initial_velocity = 1.0
+angular_velocity = 50.0
+radial_accel = 25.0
+radial_accel_random = 1.0
+damping = 93.58
+damping_random = 0.23
+scale_amount = 1.5
+color = Color( 0.952941, 1, 0.411765, 1 )
 [connection signal="area_entered" from="." to="." method="_on_HomingMissle_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

@@ -30,15 +30,15 @@ The second iteration I focused much more on the smaller details, like enemy spaw
 - [ ] ⭐ Include a dynamic (non-static) camera
 - [ ] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
-- [X] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
+- [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [ ] ⭐ Support both touch and mouse/keyboard input in the Web build
-- [X] ⭐ Allow the user to control the volume of music and sound effects independently.
+- [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
-- [ ] ⭐ Use particle effects
+- [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
 - [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
-- [ ] ⭐ Include an AI-controlled characters
+- [X] ⭐ Include an AI-controlled characters
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
 - [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>

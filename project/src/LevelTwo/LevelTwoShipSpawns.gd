@@ -59,7 +59,8 @@ var _advanced_formation_one := {
 var formation_num := 0
 
 func _ready():
-	_spawn_initial_formations()
+	pass
+	#_spawn_initial_formations()
 	
 	
 func _spawn_initial_formations():

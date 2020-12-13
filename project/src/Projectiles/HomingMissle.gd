@@ -1,7 +1,7 @@
 extends Area2D
 
-export var speed := 350
-export var steer_force := 50.0
+export var speed := 320
+export var steer_force := 85.0
 
 var velocity := Vector2.ZERO
 var acceleration := Vector2.ZERO
@@ -9,7 +9,6 @@ var target
 
 
 func _ready():
-	$Particles2D.emitting = true
 	var scene = get_parent()
 	target = scene.get_node("Player")
 	start($Sprite.global_transform,target)
