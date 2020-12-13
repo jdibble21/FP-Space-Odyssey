@@ -22,6 +22,7 @@ func _ready():
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
 	_current_scene_name = get_parent().name
+	
 
 
 func _process(delta):

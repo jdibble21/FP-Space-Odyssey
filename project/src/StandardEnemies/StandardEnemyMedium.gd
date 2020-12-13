@@ -27,7 +27,7 @@ func _process(delta):
 		queue_free()
 
 func _firing_control():
-	for i in range(0,2):
+	for _i in range(0,2):
 		var timer = Timer.new()
 		timer.set_wait_time(0.1)
 		add_child(timer)

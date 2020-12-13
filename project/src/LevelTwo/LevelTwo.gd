@@ -18,11 +18,15 @@ func _ready():
 	randomize()
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
+# warning-ignore:return_value_discarded
 	$Player.connect("cheats_enabled",self,"_activate_cheats")
 # warning-ignore:return_value_discarded
 	$Player.current_pos = $PlayerSpawn.position
 	$ShipSpawns.connect("ship_destroyed",self,"_add_score")
+# warning-ignore:return_value_discarded
 	$ShipSpawns.connect("boss_released",self, "_boss_setup")
+# warning-ignore:return_value_discarded
+	$LevelTwoBoss.connect("boss_defeated",self,"_on_level_complete")
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 
@@ -37,7 +41,9 @@ func _physics_process(_delta):
 	$HUD/LivesLabel.text = "EXTRA LIVES: " + str($Player.player_lives)
 	
 	
-func _process(_delta):
+func _process(delta):
+	if !_scrolling_enabled:
+		_boss_fight_time += delta
 	if Input.is_action_pressed("pause_game"):
 		_on_pause_pressed()
 	if Input.is_action_pressed("return_to_menu"):
@@ -54,6 +60,17 @@ func _on_player_defeat():
 	$Player.queue_free()
 	
 	
+func _on_level_complete():
+	remove_child($LevelTwoBoss)
+	$MusicLoop.stop()
+	$LevelCompleteMenu/WinSound.play()
+	$LevelCompleteMenu/CompletePanel.show()
+	$Player.set_process(false)
+	$LevelCompleteMenu/CompletePanel/RegularDestroyedLabel.text = "Total Ships Destroyed: " +str(_ships_destroyed)
+	$LevelCompleteMenu/CompletePanel/PowerupsCollectLabel.text = "Powerups Collected: " + str($Player.powerups_collected)
+	$LevelCompleteMenu/CompletePanel/BossTimeLabel.text = "Time to Defeat Boss: " + str(int(_boss_fight_time)) + " seconds"
+	
+	
 func _on_pause_pressed():
 	get_tree().paused = true
 	$PauseMenu/PausePanel.show()
@@ -67,9 +84,10 @@ func _boss_setup():
 	$LevelTwoBoss/StandardAttackDelay.start()
 	$LevelTwoBoss/MissleAttackDelay.start()
 	
+	
 func _activate_cheats():
 	print("ending formations...")
-	$ShipSpawns.formation_num = 9
+	$ShipSpawns.formation_num = 7
 	
 	
 func _add_score():

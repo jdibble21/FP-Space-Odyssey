@@ -10,7 +10,9 @@ height = 10.7149
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
-[node name="HomingMissle" type="Area2D"]
+[node name="HomingMissle" type="Area2D" groups=[
+"hazard",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

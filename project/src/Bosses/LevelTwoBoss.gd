@@ -26,8 +26,7 @@ func _ready():
 func _process(delta):
 	$HealthBar.value = _current_health
 	if _current_health == 0:
-		#defeat
-		pass
+		_on_defeat()
 	if !_stop_yaxis_travel:
 		position += transform.y * SPEED * delta
 		if position.y >= 140:
@@ -77,7 +76,64 @@ func _fire_plasma_bullet():
 	b.transform = current_muzzle.global_transform
 
 
+func _on_defeat():
+	set_process(false)
+	$Exhaust1.hide()
+	$Exhaust2.hide()
+	$StandardAttackDelay.stop()
+	$MissleAttackDelay.stop()
+	var timer = Timer.new()
+	timer.set_wait_time(3)
+	$DestroyedSound.play()
+	add_child(timer)
+	timer.start()
+	_activate_destruction()
+	yield(timer, "timeout")
+	$DestroyedSound.stop()
+	emit_signal("boss_defeated")
+
+
+func _hide_sprites():
+	$ExplosionSprite1.hide()
+	$ExplosionSprite2.hide()
+	$ExplosionSprite3.hide()
+	$ExplosionSprite4.hide()
+	$ExplosionSprite5.hide()
+
+
+func _activate_destruction():
+	$ExplosionSprite1.show()
+	$ExplosionSprite2.show()
+	$ExplosionSprite3.show()
+	$ExplosionSprite4.show()
+	$ExplosionSprite5.show()
+	$ExplosionSprite1/Timer1.start()
+	$ExplosionSprite2/Timer2.start()
+	$ExplosionSprite3/Timer3.start()
+	$ExplosionSprite4/Timer4.start()
+	$ExplosionSprite5/Timer5.start()
+	
+	
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		_current_health -= 2
 		
+
+func _on_Timer_timeout():
+	$ExplosionSprite1.play("destroyed")
+
+
+func _on_Timer2_timeout():
+	$ExplosionSprite2.play("destroyed")
+
+
+func _on_Timer3_timeout():
+	$ExplosionSprite3.play("destroyed")
+
+
+func _on_Timer4_timeout():
+	$ExplosionSprite4.play("destroyed")
+	
+
+func _on_Timer5_timeout():
+	$ExplosionSprite5.play("destroyed")

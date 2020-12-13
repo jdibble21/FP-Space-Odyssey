@@ -16,7 +16,6 @@ func _ready():
 	$Exhaust2.play("active")
 	$AnimatedSprite.play("active")
 	_current_scene_name = get_parent().name
-	print(_current_scene_name)
 	
 func _process(delta):
 	_time_elapsed += delta
@@ -39,7 +38,7 @@ func _on_HitBox_area_entered(area):
 	if area.is_in_group("player_bullet"):
 		_lives -= 1
 		$DamagedAnimation.show()
-		$DamagedAnimation.play("hit")
+		$DamagedAnimation.play("damage")
 		if _lives == 0:
 			$Muzzle/Sprite.hide()
 			$Exhaust1.hide()

@@ -64,7 +64,7 @@ func _on_FormationSpawnTimer_timeout():
 		var _new_formation_num := randi()%3+1
 		_spawn_basic_ship_formation(_get_formation(_new_formation_num))
 	if formation_num == MAX_FORMATIONS:
-		_spawn_advanced_ship_formation()
+		_spawn_advanced_ship_formation(_advanced_formation_one)
 	if formation_num >= MAX_FORMATIONS+1:
 		remove_child($FormationSpawnTimer)
 		_spawn_levelone_boss()
@@ -73,7 +73,6 @@ func _on_FormationSpawnTimer_timeout():
 	
 func _spawn_basic_ship_formation(formation):
 	for i in range(0,3):
-		print("spawning ship into formation! num:"+str(i+1))
 		_spawn_basic_ship(formation,i+1)
 
 	
@@ -85,17 +84,17 @@ func _spawn_basic_ship(formation_pos,set_num):
 	_new_ship.position = Vector2(formation_pos["pos"+str(set_num)][0],formation_pos["pos"+str(set_num)][1])
 	
 	
-func _spawn_advanced_ship_formation():
-	var formation = _advanced_formation_one
-	var _ship_one = _advanced_ship.instance()
-	var _ship_two = _advanced_ship.instance()
-	var _ship_three = _advanced_ship.instance()
-	add_child(_ship_one)
-	add_child(_ship_two)
-	add_child(_ship_three)
-	_ship_one.position = Vector2(formation["pos1"][0],formation["pos1"][1])
-	_ship_two.position = Vector2(formation["pos2"][0],formation["pos2"][1])
-	_ship_three.position = Vector2(formation["pos3"][0],formation["pos3"][1])
+func _spawn_advanced_ship_formation(formation):
+	for i in range(0,3):
+		_spawn_advanced_ship(formation,i+1)
+		
+		
+func _spawn_advanced_ship(formation_pos,set_num):
+	var root_attach = get_tree().get_root().get_node(owner.name)
+	var _ship = _advanced_ship.instance()
+	root_attach.call_deferred("add_child",_ship)
+	_ship.connect("destroyed",self,"_on_ship_destroyed")
+	_ship.position = Vector2(formation_pos["pos"+str(set_num)][0],formation_pos["pos"+str(set_num)][1])
 	
 	
 func _spawn_levelone_boss():

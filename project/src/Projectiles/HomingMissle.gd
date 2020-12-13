@@ -45,7 +45,6 @@ func _explode():
 	$Sprite.hide()
 	$ExplosionSprite.play("destroyed")
 	set_physics_process(false)
-	print("missle exploded!")
 
 
 func _on_ExplosionSprite_animation_finished():
