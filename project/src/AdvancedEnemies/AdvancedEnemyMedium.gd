@@ -14,7 +14,7 @@ func _ready():
 	$DamagedAnimation.hide()
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
-	$AnimatedSprite.play("active")
+	$Sprite.play("active")
 	_current_scene_name = get_parent().name
 	
 func _process(delta):
@@ -43,7 +43,7 @@ func _on_HitBox_area_entered(area):
 			$Muzzle/Sprite.hide()
 			$Exhaust1.hide()
 			$Exhaust2.hide()
-			$AnimatedSprite.play("destroyed")
+			$Sprite.play("destroyed")
 			var timer = Timer.new()
 			timer.set_wait_time(0.3)
 			add_child(timer)
