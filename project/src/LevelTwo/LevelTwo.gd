@@ -15,6 +15,7 @@ onready var _menu_scene := load("res://src/Menu.tscn")
 onready var _gameplay_scene = load("res://src/LevelTwo/LevelTwo.tscn")
 
 func _ready():
+	randomize()
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
 # warning-ignore:return_value_discarded

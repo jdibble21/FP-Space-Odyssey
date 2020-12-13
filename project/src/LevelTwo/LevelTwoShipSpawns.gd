@@ -13,36 +13,42 @@ export (PackedScene) var _speed_ship
 export (PackedScene) var _advanced_ship
 export (PackedScene) var _special_basic_ship
 
+
 var _speed_formation := {
 	"pos1":[502,-70],
 	"pos2":[207,-70],
 } 
 var _basic_formation_one := {
-	"pos1":[78,-41],
+	"pos1":[75,-41],
 	"pos2":[134,-41],
-	"pos3":[181,-41]
+	"pos3":[184,-41]
 } 
 var _basic_formation_two := {
 	"pos1":[50,-153],
 	"pos2":[99,-110],
 	"pos3":[149,-79]
 } 
+var _basic_formation_three := {
+	"pos1":[652,-167],
+	"pos2":[588,-109],
+	"pos3":[535,-60]
+}
 var _basic_special_formation_one := {
-	"pos1":[78,-29],
-	"pos2":[114,-29],
-	"pos3":[150,-29],
-	"pos4":[186,-29]
+	"pos1":[65,-29],
+	"pos2":[101,-29],
+	"pos3":[155,-29],
+	"pos4":[199,-29]
 }
 var _basic_special_formation_two := {
-	"pos1":[315,-25],
-	"pos2":[378,-25],
-	"pos3":[315,-88],
-	"pos4":[378,-88]
+	"pos1":[300,-30],
+	"pos2":[385,-30],
+	"pos3":[300,-100],
+	"pos4":[385,-100]
 }
 var _basic_special_formation_three := {
-	"pos1":[529,-37],
-	"pos2":[570,-37],
-	"pos3":[611,-37],
+	"pos1":[529,-25],
+	"pos2":[570,-25],
+	"pos3":[611,-25],
 	"pos4":[570,-78]
 }
 var _advanced_formation_one := {
@@ -50,8 +56,17 @@ var _advanced_formation_one := {
 	"pos2":[496,-28],
 	"pos3":[354,-73]
 }
-
 var formation_num := 0
+
+func _ready():
+	_spawn_initial_formations()
+	
+	
+func _spawn_initial_formations():
+	for i in range(0,3):
+		_spawn_ship(_basic_formation_one,i+1,_basic_ship)
+	for i in range(0,3):
+		_spawn_ship(_basic_formation_three,i+1,_basic_ship)
 
 
 func _on_FormationSpawnTimer_timeout():
@@ -66,7 +81,7 @@ func _on_FormationSpawnTimer_timeout():
 	
 	
 func _spawn_basic_ship_formation():
-	var formation = _get_basic_formation(randi()%2+1)
+	var formation = _get_basic_formation(randi()%3+1)
 	for i in range(0,3):
 		_spawn_ship(formation,i+1,_basic_ship)
 		
@@ -100,6 +115,10 @@ func _get_basic_formation(num):
 		return _basic_formation_one
 	if num == 2:
 		return _basic_formation_two
+	if num == 3:
+		return _basic_formation_three	
+		
+		
 func _get_special_formation(num):
 	if num == 1:
 		return _basic_special_formation_one
@@ -111,6 +130,7 @@ func _get_special_formation(num):
 		
 func _on_SpeedShipSpawnTimer_timeout():
 	_spawn_speed_ship_formation()
+	
 	
 func _on_ship_destroyed():
 	emit_signal("ship_destroyed")

@@ -46,7 +46,7 @@ _advanced_ship = ExtResource( 11 )
 _special_basic_ship = ExtResource( 13 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
-wait_time = 4.0
+wait_time = 4.5
 autostart = true
 
 [node name="SpeedShipSpawnTimer" type="Timer" parent="ShipSpawns"]

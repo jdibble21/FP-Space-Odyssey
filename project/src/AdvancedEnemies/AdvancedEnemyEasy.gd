@@ -21,7 +21,7 @@ func _ready():
 	$ExplosionSprite.hide()
 	$Exhaust1.play("active")
 	$Exhaust2.play("active")
-	_current_scene_name = get_parent().get_parent().name
+	_current_scene_name = get_parent().name
 
 
 func _process(delta):
