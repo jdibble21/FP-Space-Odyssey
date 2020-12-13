@@ -75,6 +75,9 @@ func _on_FormationSpawnTimer_timeout():
 	if formation_num >= 3 and formation_num < 7:
 		_spawn_special_ship_formation()
 	if formation_num >=7 and formation_num < 9:
+		$FormationSpawnTimer.wait_time = 6
+		if formation_num == 7:
+			$FormationSpawnTimer.wait_time = 9
 		_spawn_special_ship_formation()
 		_spawn_advanced_ship_formation()
 	formation_num += 1

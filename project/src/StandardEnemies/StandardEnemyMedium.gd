@@ -40,3 +40,18 @@ func _fire():
 	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = $Muzzle.global_transform
+
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("player_bullet") and !_disable_hitbox:
+		_disable_hitbox = true
+		$AnimatedSprite.play("destroyed")
+		$DestroyedSound.play()
+		$Muzzle/Sprite.hide()
+		emit_signal("destroyed")
+		var timer = Timer.new()
+		timer.set_wait_time(0.3)
+		add_child(timer)
+		timer.start()
+		yield(timer, "timeout")
+		queue_free()

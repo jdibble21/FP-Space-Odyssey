@@ -24,6 +24,7 @@ func _ready():
 	$PauseMenu/PausePanel.hide()
 	$MusicLoop.play()
 
+
 func _physics_process(_delta):
 	if _scrolling_enabled:
 		if _background.position.y >= 815:
@@ -32,6 +33,7 @@ func _physics_process(_delta):
 	$HUD/TimeLabel.text = "TIME: " + str(_HUD.rounded_time)
 	$HUD/ScoreLabel.text = "SHIPS DESTROYED: " + str(_ships_destroyed)
 	$HUD/LivesLabel.text = "EXTRA LIVES: " + str($Player.player_lives)
+	
 	
 func _process(_delta):
 	if Input.is_action_pressed("pause_game"):

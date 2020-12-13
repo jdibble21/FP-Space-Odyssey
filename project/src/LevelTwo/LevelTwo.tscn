@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/LevelTwo/LevelTwoShipSpawns.gd" type="Script" id=1]
 [ext_resource path="res://src/LevelTwo/LevelTwo.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyEasy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/StandardEnemies/StandardEnemyEasy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AdvancedEnemies/AdvancedEnemyMedium.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Projectiles/HomingMissle.tscn" type="PackedScene" id=14]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource( 2 )
@@ -47,11 +48,9 @@ _special_basic_ship = ExtResource( 13 )
 
 [node name="FormationSpawnTimer" type="Timer" parent="ShipSpawns"]
 wait_time = 4.5
-autostart = true
 
 [node name="SpeedShipSpawnTimer" type="Timer" parent="ShipSpawns"]
 wait_time = 7.0
-autostart = true
 
 [node name="HazardTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -67,6 +66,11 @@ volume_db = -9.087
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
 
 [node name="LevelCompleteMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="HomingMissle" parent="." instance=ExtResource( 14 )]
+position = Vector2( 324.5, 59.4721 )
+
+[node name="Position2D" type="Position2D" parent="."]
 [connection signal="timeout" from="ShipSpawns/FormationSpawnTimer" to="ShipSpawns" method="_on_FormationSpawnTimer_timeout"]
 [connection signal="timeout" from="ShipSpawns/SpeedShipSpawnTimer" to="ShipSpawns" method="_on_SpeedShipSpawnTimer_timeout"]
 [connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]
