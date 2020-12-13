@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/boss_assets/carrier.png" type="Texture" id=1]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_04_png_processed.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/PixelSpaceRage/256px/GunTurret_ExampleGun_png_processed.png" type="Texture" id=4]
 [ext_resource path="res://assets/PixelSpaceRage/256px/Exhaust_Frame_02_png_processed.png" type="Texture" id=5]
 [ext_resource path="res://src/Bosses/LevelTwoBoss.gd" type="Script" id=6]
+[ext_resource path="res://src/Projectiles/EnemyPlasmaBullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Projectiles/HomingMissle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 38.8867
@@ -25,6 +27,8 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+StandardBullet = ExtResource( 7 )
+Missle = ExtResource( 8 )
 
 [node name="HitBox" type="Area2D" parent="."]
 
@@ -81,3 +85,13 @@ step = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StandardAttackDelay" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="MissleAttackDelay" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+[connection signal="timeout" from="StandardAttackDelay" to="." method="_on_StandardAttackDelay_timeout"]
+[connection signal="timeout" from="MissleAttackDelay" to="." method="_on_MissleAttackDelay_timeout"]
