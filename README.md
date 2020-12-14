@@ -1,13 +1,12 @@
 # FP-Space-Odyssey
 
-## Iteration 2
+## Iteration 3
 
 <a href="https://bsu-cs315.github.io/FP-Space-Odyssey/" target="_blank">Play the game here!</a>
 
 ## Reflection
 
-The second iteration I focused much more on the smaller details, like enemy spawn times and sounds, to improve the game. The biggest challenge for me was to ensure all data was flowing through the project in a smart way (i.e. not having ten different scripts delivering 5 different variables in 8 different methods) and getting the signals and groups to work properly. My favorite part was creating the boss scene, having an enemy with more intricate attack sequences and a large health pool. 
-
+This iteration I really enjoyed the process of planning the level out and deciding what sort of enemies to have, and how to make it all work. Since I already laid the groundwork to the level from experience with my first one, I was able to focus more on design and creativity. I decided to have more challenging and larger amounts of enemies and a boss that fired a projectile controlled with a basic AI. 
 ## Stars
 
 - Particle effects: used in the missles fired by the boss of the second level

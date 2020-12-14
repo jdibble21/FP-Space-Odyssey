@@ -55,6 +55,3 @@ func _on_transition_animation_finished(anim_name):
 
 func _on_MainMenu_tree_entered():
 	$AnimationPlayer.play("backwards_transition")
-
-
-
