@@ -103,7 +103,6 @@ func _on_hazard_timer_timeout():
 	add_child(_new_hazard)
 
 
-
 func _on_ReturnMenuButton_pressed():
 	get_tree().paused = false
 	$PauseMenu/PausePanel.hide()

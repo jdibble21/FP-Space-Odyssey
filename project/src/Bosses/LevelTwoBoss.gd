@@ -1,3 +1,5 @@
+# Controls boss for level two. Movement, firing delays, updating health
+# and defeat signals are all tracked
 extends KinematicBody2D
 
 signal boss_defeated

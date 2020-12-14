@@ -6,6 +6,7 @@ signal destroyed
 const SPEED := 70
 
 export (PackedScene) var Bullet
+
 var _fire_delay := randi()%6+3
 var _time_elapsed := 0.0
 var _current_scene_name
@@ -17,6 +18,7 @@ func _ready():
 	$Exhaust2.play("active")
 	$Sprite.play("active")
 	_current_scene_name = get_parent().name
+	
 	
 func _process(delta):
 	_time_elapsed += delta

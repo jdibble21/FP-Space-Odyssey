@@ -16,6 +16,7 @@ func _ready():
 		$CompletePanel/NextLevelButton.hide()
 	$CompletePanel.hide()
 
+
 func _on_ReplayLevelButton_pressed():
 	get_parent().queue_free()
 	queue_free()

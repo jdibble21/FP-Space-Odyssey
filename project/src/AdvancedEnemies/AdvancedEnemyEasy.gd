@@ -24,7 +24,6 @@ func _ready():
 	_current_scene_name = get_parent().name
 	
 
-
 func _process(delta):
 	_time_elapsed += delta
 	if int(_time_elapsed) >= _fire_delay:

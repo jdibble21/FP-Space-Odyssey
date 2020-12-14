@@ -95,6 +95,7 @@ position = Vector2( 354.136, 696.786 )
 [node name="MusicLoop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 volume_db = -9.087
+bus = "Music"
 
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
 
@@ -104,7 +105,7 @@ volume_db = -9.087
 position = Vector2( 348.136, 153.5 )
 
 [node name="TransitionScreen" type="Sprite" parent="."]
-position = Vector2( 0, -813 )
+position = Vector2( 0, -0.00012207 )
 scale = Vector2( 1.37668, 1.53108 )
 texture = ExtResource( 15 )
 centered = false

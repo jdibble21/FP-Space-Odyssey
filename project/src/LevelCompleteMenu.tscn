@@ -95,6 +95,7 @@ text = "Replay"
 [node name="WinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = -2.137
+bus = "Music"
 [connection signal="pressed" from="CompletePanel/ReturnMenuButton" to="." method="_on_ReturnMenuButton_pressed"]
 [connection signal="pressed" from="CompletePanel/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
 [connection signal="pressed" from="CompletePanel/ReplayLevelButton" to="." method="_on_ReplayLevelButton_pressed"]

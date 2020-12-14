@@ -1,5 +1,5 @@
+# Controls movement, and random firing delay for enemy type.
 extends KinematicBody2D
-
 
 signal destroyed
 const SPEED := 250
@@ -26,6 +26,7 @@ func _process(delta):
 	if position.y >= 805:
 		queue_free()
 
+
 func _firing_control():
 	for _i in range(0,2):
 		var timer = Timer.new()
@@ -34,6 +35,7 @@ func _firing_control():
 		timer.start()
 		_fire()
 		yield(timer, "timeout")
+
 
 func _fire():
 	var b = Bullet.instance()
