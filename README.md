@@ -8,6 +8,12 @@
 
 The second iteration I focused much more on the smaller details, like enemy spawn times and sounds, to improve the game. The biggest challenge for me was to ensure all data was flowing through the project in a smart way (i.e. not having ten different scripts delivering 5 different variables in 8 different methods) and getting the signals and groups to work properly. My favorite part was creating the boss scene, having an enemy with more intricate attack sequences and a large health pool. 
 
+## Stars
+
+- Particle effects: used in the missles fired by the boss of the second level
+- AI control: used in the logic of the missles fired by the boss of the second level
+- Title screen: an AnimationPlayer was used to make logo more interesting
+
 ## Self-Evaluation
 
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
@@ -37,7 +43,7 @@ The second iteration I focused much more on the smaller details, like enemy spaw
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
 - [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
-- [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
+- [X] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [X] ⭐ Include an AI-controlled characters
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
 - [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu

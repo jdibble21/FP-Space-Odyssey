@@ -18,6 +18,7 @@ onready var _menu_scene := load("res://src/Menu.tscn")
 onready var _gameplay_scene = load("res://src/LevelTwo/LevelTwo.tscn")
 
 func _ready():
+	$AnimationPlayer.play("transition")
 	randomize()
 # warning-ignore:return_value_discarded
 	$Player.connect("player_defeated",self,"_on_player_defeat")
@@ -101,3 +102,9 @@ func _on_hazard_timer_timeout():
 	var _new_hazard = _asteroid_hazard.instance()
 	add_child(_new_hazard)
 
+
+
+func _on_ReturnMenuButton_pressed():
+	get_tree().paused = false
+	$PauseMenu/PausePanel.hide()
+	$AnimationPlayer.play("backwards_transition")

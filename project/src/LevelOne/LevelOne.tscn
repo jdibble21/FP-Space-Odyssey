@@ -96,7 +96,7 @@ bus = "Music"
 
 [node name="TransitionScreen" type="Sprite" parent="."]
 light_mask = 31775
-position = Vector2( 351.158, -553.247 )
+position = Vector2( 351.158, 273 )
 scale = Vector2( 1.37576, 2.01195 )
 texture = ExtResource( 13 )
 
