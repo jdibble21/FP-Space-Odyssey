@@ -75,7 +75,6 @@ func _fire_missle():
 			
 func _fire_plasma_bullet():
 	var b = StandardBullet.instance()
-	print(get_parent().name)
 	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = current_muzzle.global_transform

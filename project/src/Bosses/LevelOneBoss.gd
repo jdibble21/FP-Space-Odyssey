@@ -12,6 +12,7 @@ export (PackedScene) var PhotonBullet
 var _travel_right := true
 var _stop_yaxis_travel := false
 var current_muzzle
+var _current_scene_name
 
 onready var _current_health := 100
 onready var _muzzle_one := $Muzzle1
@@ -26,7 +27,7 @@ func _ready():
 	position = Vector2(350,-100)
 	$ExhaustOne.play("active")
 	$ExhaustTwo.play("active")
-	
+	_current_scene_name = get_parent().name
 	
 func _process(delta):
 	$HealthBar.value = _current_health
@@ -68,14 +69,14 @@ func _on_StandardAttackDelay_timeout():
 	
 func _fire_standard_bullet():
 	var b = StandardBullet.instance()
-	var root_attach = get_tree().get_root().get_node("LevelOne")
+	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = current_muzzle.global_transform
 	
 
 func _on_SpecialAttackDelay_timeout():
 	var b = PhotonBullet.instance()
-	var root_attach = get_tree().get_root().get_node("LevelOne")
+	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	$SpecialAttackSound.play()
 	b.transform = $MuzzleSpecial.global_transform
