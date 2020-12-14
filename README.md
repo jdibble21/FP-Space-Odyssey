@@ -65,6 +65,10 @@ Standard enemy laser (green laser) sound is "Laser". Created by SamsterBirdies, 
 
 Boss ship explosion sound is "Explode". Created by Bekir_VirtualDJ, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/Bekir_VirtualDJ/sounds/132833/
 
+Rocket/Missle explosion sound is "explosion12.wav". Created by V-ktor, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/V-ktor/sounds/435413/
+
+Rocket/Missle launch sound is "Rocket Launch". Created by Jarusca, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://freesound.org/people/Jarusca/sounds/521377/
+
 Powerup pickup sounds, standard enemy destroy sounds and plasma shot sound is created by me
 
 Font used is "Sofachrome Font Family". Create by Raymond Larabie, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/). Source: https://www.1001fonts.com/sofachrome-font.html
