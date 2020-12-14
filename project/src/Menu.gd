@@ -3,7 +3,7 @@
 extends CanvasLayer
 
 const SPEED := 200
-var _selected_level := ""
+var _selected_level := "empty"
 
 onready var _level_one_scene = load("res://src/LevelOne/LevelOne.tscn")
 onready var _level_two_scene = load("res://src/LevelTwo/LevelTwo.tscn")
@@ -43,6 +43,8 @@ func _on_OptionsButton_pressed():
 
 
 func _on_transition_animation_finished(anim_name):
+	if anim_name == "backwards_transition" and _selected_level == "empty":
+		$AnimationPlayer.play("logo_animation")
 	if anim_name == "transition" and _selected_level == "level_one":
 		queue_free()
 		get_tree().get_root().add_child(_level_one_scene.instance())
