@@ -8,6 +8,7 @@
 radius = 5.31625
 
 [node name="PhotonSingleBullet" type="Area2D" groups=[
+"enemy_bullet",
 "hazard",
 ]]
 script = ExtResource( 2 )

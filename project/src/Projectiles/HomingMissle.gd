@@ -9,6 +9,7 @@ var acceleration := Vector2.ZERO
 var target
 	
 func start(_transform, _target):
+	$LaunchSound.play()
 	global_transform = _transform
 	rotation += rand_range(-0.09, 0.09)
 	velocity = transform.x * speed
@@ -41,6 +42,7 @@ func _on_HomingMissle_area_entered(area):
 
 
 func _explode():
+	$ExplosionSound.play()
 	$Particles2D.emitting = false
 	$Sprite.hide()
 	$ExplosionSprite.play("destroyed")

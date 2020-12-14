@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/435413__v-ktor__explosion12.ogg-5b0199e49b625c4703b75caa82e8fd82.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/435413__v-ktor__explosion12.ogg"
+dest_files=[ "res://.import/435413__v-ktor__explosion12.ogg-5b0199e49b625c4703b75caa82e8fd82.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

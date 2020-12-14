@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/misc_assets/rocket.png" type="Texture" id=1]
 [ext_resource path="res://src/Projectiles/HomingMissle.gd" type="Script" id=2]
 [ext_resource path="res://assets/frames/explosion_frames.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/sound_assets/435413__v-ktor__explosion12.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound_assets/521377__jarusca__rocket-launch.ogg" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.35487
@@ -11,6 +13,7 @@ height = 10.7149
 [sub_resource type="CanvasItemMaterial" id=2]
 
 [node name="HomingMissle" type="Area2D" groups=[
+"enemy_bullet",
 "hazard",
 ]]
 script = ExtResource( 2 )
@@ -50,6 +53,12 @@ color = Color( 0.952941, 1, 0.411765, 1 )
 frames = ExtResource( 3 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="LaunchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -2.0
 bus = "SFX"
 [connection signal="area_entered" from="." to="." method="_on_HomingMissle_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

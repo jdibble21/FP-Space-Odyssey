@@ -1,5 +1,8 @@
 # Handles scrolling background, global values such as scoring, music,
 # and end of level situations. Also handles launching asteroid hazards
+# IGNORED WARNINGS:
+# the connect() functions returned a value I could not access 
+# nor do I need to use, even though the signal itself is still used
 extends Node2D
 
 const SPEED := 2

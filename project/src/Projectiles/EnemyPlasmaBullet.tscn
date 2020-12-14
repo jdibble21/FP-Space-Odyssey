@@ -8,7 +8,10 @@
 radius = 4.24966
 height = 18.5856
 
-[node name="EnemyPlasmaBullet" type="Area2D"]
+[node name="EnemyPlasmaBullet" type="Area2D" groups=[
+"enemy_bullet",
+"hazard",
+]]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

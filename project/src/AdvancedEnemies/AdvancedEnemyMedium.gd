@@ -1,3 +1,4 @@
+# Controls enemy movement, hit detection and randomized firing delay
 extends KinematicBody2D
 
 signal destroyed
@@ -44,6 +45,7 @@ func _on_HitBox_area_entered(area):
 			$Exhaust1.hide()
 			$Exhaust2.hide()
 			$Sprite.play("destroyed")
+			$DestroyedSound.play()
 			var timer = Timer.new()
 			timer.set_wait_time(0.3)
 			add_child(timer)

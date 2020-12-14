@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/521377__jarusca__rocket-launch.ogg-a766aa420c743c9dac5938e2866cba99.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/521377__jarusca__rocket-launch.ogg"
+dest_files=[ "res://.import/521377__jarusca__rocket-launch.ogg-a766aa420c743c9dac5938e2866cba99.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

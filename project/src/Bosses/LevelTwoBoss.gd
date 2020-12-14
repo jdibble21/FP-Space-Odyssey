@@ -9,6 +9,7 @@ export (PackedScene) var Missle
 var _travel_right := true
 var _stop_yaxis_travel := false
 var current_muzzle
+var _current_scene_name
 
 onready var _muzzle_one := $Muzzle1
 onready var _muzzle_two := $Muzzle2
@@ -16,6 +17,7 @@ onready var _muzzle_rocket := $Muzzle3
 onready var _current_health := 100
 
 func _ready():
+	_current_scene_name = get_parent().name
 	$HitBox.hide()
 	set_process(false)
 	position = Vector2(350,-100)
@@ -71,7 +73,8 @@ func _fire_missle():
 			
 func _fire_plasma_bullet():
 	var b = StandardBullet.instance()
-	var root_attach = get_tree().get_root().get_node("LevelTwo")
+	print(get_parent().name)
+	var root_attach = get_tree().get_root().get_node(_current_scene_name)
 	root_attach.add_child(b)
 	b.transform = current_muzzle.global_transform
 
